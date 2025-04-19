@@ -4797,5 +4797,10 @@ namespace MissionPlanner
                 }
             }
         }
+
+        private void MenuWindButton_Click(object sender, EventArgs e)
+        {
+            MyView.ShowScreen("Wind");
+        }
     }
 }
