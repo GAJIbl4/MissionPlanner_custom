@@ -343,9 +343,6 @@
     <Compile Update="GCSViews\ConfigurationView\ConfigUserDefined.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="GCSViews\Wind.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Update="Joystick\JoystickAxis.cs">
       <SubType>UserControl</SubType>
     </Compile>

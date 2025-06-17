@@ -463,6 +463,16 @@ namespace MissionPlanner.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap customSettings {
+            get {
+                object obj = ResourceManager.GetObject("customSettings", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dark_connect_icon {
             get {
                 object obj = ResourceManager.GetObject("dark_connect_icon", resourceCulture);

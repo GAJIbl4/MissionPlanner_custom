@@ -54,6 +54,9 @@ namespace MissionPlanner.GCSViews
         internal static GMapOverlay tfrpolygons;
         internal GMapMarker CurrentGMapMarker;
 
+        // Параметры для отображения контекстного меню
+        public static bool toggledMenu = false;
+
         internal PointLatLng MouseDownStart;
 
         //The file path of the selected script
@@ -6645,6 +6648,53 @@ namespace MissionPlanner.GCSViews
 
             // Pass `this` to keep the pop-out always on top
             form.Show(this);
+        }
+
+        private List<ToolStripMenuItem> originalMenuItems = new List<ToolStripMenuItem>();
+
+        /// <summary>
+        /// Скрывает все пункты контекстного меню кроме "EKF Set Home Origin" или возвращает их обратно.
+        /// </summary>
+        /// <param name="hideOthers">Если true, скрывает все пункты кроме "EKF Set Home Origin". Если false, возвращает всё как было.</param>
+        public void ToggleContextMenuItems(bool hideOthers)
+        {
+            if (contextMenuStripMap == null) return;
+
+            if (hideOthers)
+            {
+                toggledMenu = true;
+                // Сохраняем оригинальные пункты меню, если они ещё не сохранены
+                if (originalMenuItems.Count == 0)
+                {
+                    foreach (ToolStripItem item in contextMenuStripMap.Items)
+                    {
+                        if (item is ToolStripMenuItem menuItem)
+                        {
+                            originalMenuItems.Add(menuItem);
+                        }
+                    }
+                }
+
+                // Скрываем все пункты, кроме "Set Home Here"
+                foreach (ToolStripItem item in contextMenuStripMap.Items)
+                {
+                    if (item is ToolStripMenuItem menuItem)
+                    {
+                        menuItem.Visible = menuItem.Text == "Set Home Here";
+                    }
+                }
+            }
+            else
+            {
+                // Восстанавливаем оригинальные пункты меню
+                foreach (ToolStripItem item in contextMenuStripMap.Items)
+                {
+                    if (item is ToolStripMenuItem menuItem)
+                    {
+                        menuItem.Visible = originalMenuItems.Contains(menuItem);
+                    }
+                }
+            }
         }
     }
 }

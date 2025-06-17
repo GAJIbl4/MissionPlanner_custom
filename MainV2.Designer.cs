@@ -49,7 +49,7 @@ namespace MissionPlanner
             this.MenuConfigTune = new System.Windows.Forms.ToolStripButton();
             this.MenuSimulation = new System.Windows.Forms.ToolStripButton();
             this.MenuHelp = new System.Windows.Forms.ToolStripButton();
-            this.MenuWindButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuCustomSettingsButton = new System.Windows.Forms.ToolStripButton();
             this.MenuConnect = new System.Windows.Forms.ToolStripButton();
             this.toolStripConnectionControl = new MissionPlanner.Controls.ToolStripConnectionControl();
             this.MenuArduPilot = new System.Windows.Forms.ToolStripButton();
@@ -74,7 +74,7 @@ namespace MissionPlanner
             this.MenuConfigTune,
             this.MenuSimulation,
             this.MenuHelp,
-            this.MenuWindButton,
+            this.MenuCustomSettingsButton,
             this.MenuConnect,
             this.toolStripConnectionControl,
             this.MenuArduPilot});
@@ -175,13 +175,13 @@ namespace MissionPlanner
             this.MenuHelp.Name = "MenuHelp";
             this.MenuHelp.Click += new System.EventHandler(this.MenuHelp_Click);
             // 
-            // MenuWindButton
+            // MenuCustomSettingsButton
             // 
-            this.MenuWindButton.ForeColor = System.Drawing.Color.Azure;
-            this.MenuWindButton.Image = global::MissionPlanner.Properties.Resources.wind;
-            this.MenuWindButton.Name = "MenuWindButton";
-            resources.ApplyResources(this.MenuWindButton, "MenuWindButton");
-            this.MenuWindButton.Click += new System.EventHandler(this.MenuWindButton_Click);
+            this.MenuCustomSettingsButton.ForeColor = System.Drawing.Color.Azure;
+            this.MenuCustomSettingsButton.Image = global::MissionPlanner.Properties.Resources.customSettings;
+            this.MenuCustomSettingsButton.Name = "MenuCustomSettingsButton";
+            resources.ApplyResources(this.MenuCustomSettingsButton, "MenuCustomSettingsButton");
+            this.MenuCustomSettingsButton.Click += new System.EventHandler(this.MenuCustomSettingsButton_Click);
             // 
             // MenuConnect
             // 
@@ -275,6 +275,6 @@ namespace MissionPlanner
         public System.Windows.Forms.ToolStripButton MenuHelp;
         public System.Windows.Forms.ToolStripButton MenuArduPilot;
         public Controls.Status status1;
-        private System.Windows.Forms.ToolStripMenuItem MenuWindButton;
+        public System.Windows.Forms.ToolStripButton MenuCustomSettingsButton;
     }
 }

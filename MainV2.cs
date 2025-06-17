@@ -3164,6 +3164,7 @@ namespace MissionPlanner
             MyView.AddScreen(new MainSwitcher.Screen("SWConfig", typeof(GCSViews.SoftwareConfig), false));
             MyView.AddScreen(new MainSwitcher.Screen("Simulation", Simulation, true));
             MyView.AddScreen(new MainSwitcher.Screen("Help", typeof(GCSViews.Help), false));
+            MyView.AddScreen(new MainSwitcher.Screen("CustomParams", typeof(GCSViews.CustomParams), false));
 
             try
             {
@@ -4654,11 +4655,87 @@ namespace MissionPlanner
         {
             try
             {
-                System.Diagnostics.Process.Start("https://ardupilot.org/?utm_source=Menu&utm_campaign=MP");
+                // Create a new form for menu visibility settings  
+                Form visibilityForm = new Form
+                {
+                    Text = "Настройки видимости кнопок",
+                    Size = new Size(300, 400),
+                    FormBorderStyle = FormBorderStyle.FixedDialog,
+                    MaximizeBox = false,
+                    MinimizeBox = false,
+                    StartPosition = FormStartPosition.CenterScreen
+                };
+
+                // Create a panel to hold the checkboxes  
+                FlowLayoutPanel panel = new FlowLayoutPanel
+                {
+                    Dock = DockStyle.Fill,
+                    AutoScroll = true
+                };
+
+                // Create checkboxes for each menu button  
+                var menuItems = new Dictionary<string, ToolStripButton>
+               {
+                   { "Полетные данные", MenuFlightData },
+                   { "Планировщик полета", MenuFlightPlanner },
+                   { "Настройка оборудования", MenuInitConfig },
+                   { "Симуляция", MenuSimulation },
+                   { "Настройка ПО", MenuConfigTune },
+                   { "Подключение", MenuConnect },
+                   { "Помощь", MenuHelp },
+                   { "Кастомные настройки", MenuCustomSettingsButton }
+               };
+
+                foreach (var item in menuItems)
+                {
+                    CheckBox checkBox = new CheckBox
+                    {
+                        Text = item.Key,
+                        Checked = item.Value.Visible,
+                        AutoSize = true
+                    };
+
+                    // Bind checkbox state to menu item visibility  
+                    checkBox.CheckedChanged += (s, args) =>
+                    {
+                        item.Value.Visible = checkBox.Checked;
+                    };
+
+                    panel.Controls.Add(checkBox);
+                }
+
+                // Add a separate checkbox for modifying the map context menu  
+                CheckBox mapContextMenuCheckBox = new CheckBox
+                {
+                    Text = "Изменить контекстное меню карты",
+                    Checked = false,
+                    AutoSize = true
+                };
+
+                mapContextMenuCheckBox.CheckedChanged += (s, args) =>
+                {
+                    if (mapContextMenuCheckBox.Checked)
+                    {
+                        FlightData.ToggleContextMenuItems(true);
+                    }
+                    else
+                    {
+                        FlightData.ToggleContextMenuItems(true);
+
+                    }
+                };
+
+                panel.Controls.Add(mapContextMenuCheckBox);
+
+                // Add panel to the form  
+                visibilityForm.Controls.Add(panel);
+
+                // Show the form  
+                visibilityForm.ShowDialog();
             }
-            catch
+            catch (Exception ex)
             {
-                CustomMessageBox.Show("Failed to open url https://ardupilot.org");
+                CustomMessageBox.Show($"Ошибка: {ex.Message}", "Ошибка");
             }
         }
 
@@ -4798,9 +4875,9 @@ namespace MissionPlanner
             }
         }
 
-        private void MenuWindButton_Click(object sender, EventArgs e)
+        private void MenuCustomSettingsButton_Click(object sender, EventArgs e)
         {
-            MyView.ShowScreen("Wind");
+            MyView.ShowScreen("CustomParams");
         }
     }
 }

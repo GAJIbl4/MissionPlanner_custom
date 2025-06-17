@@ -681,13 +681,13 @@
   <data name="MenuHelp.ToolTipText" xml:space="preserve">
     <value>Help</value>
   </data>
-  <data name="MenuWindButton.Size" type="System.Drawing.Size, System.Drawing">
-    <value>57, 47</value>
+  <data name="MenuCustomSettingsButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>74, 47</value>
   </data>
-  <data name="MenuWindButton.Text" xml:space="preserve">
-    <value>WIND</value>
+  <data name="MenuCustomSettingsButton.Text" xml:space="preserve">
+    <value>Настройки</value>
   </data>
-  <data name="MenuWindButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+  <data name="MenuCustomSettingsButton.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
     <value>ImageAboveText</value>
   </data>
   <data name="MenuConnect.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -991,7 +991,7 @@
     <value>status1</value>
   </data>
   <data name="&gt;&gt;status1.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.Status, MissionPlanner, Version=1.3.9240.29212, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.Status, MissionPlanner, Version=1.3.9299.7022, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;status1.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -2688,6 +2688,9 @@
         AAAAAAAAAAAAAAAAAAA=
 </value>
   </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
@@ -2766,10 +2769,10 @@
   <data name="&gt;&gt;MenuHelp.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;MenuWindButton.Name" xml:space="preserve">
-    <value>MenuWindButton</value>
+  <data name="&gt;&gt;MenuCustomSettingsButton.Name" xml:space="preserve">
+    <value>MenuCustomSettingsButton</value>
   </data>
-  <data name="&gt;&gt;MenuWindButton.Type" xml:space="preserve">
+  <data name="&gt;&gt;MenuCustomSettingsButton.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;MenuConnect.Name" xml:space="preserve">
@@ -2782,7 +2785,7 @@
     <value>toolStripConnectionControl</value>
   </data>
   <data name="&gt;&gt;toolStripConnectionControl.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.ToolStripConnectionControl, MissionPlanner, Version=1.3.9240.29212, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.ToolStripConnectionControl, MissionPlanner, Version=1.3.9299.7022, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;MenuArduPilot.Name" xml:space="preserve">
     <value>MenuArduPilot</value>
