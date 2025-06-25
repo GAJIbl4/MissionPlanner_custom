@@ -6653,48 +6653,50 @@ namespace MissionPlanner.GCSViews
         private List<ToolStripMenuItem> originalMenuItems = new List<ToolStripMenuItem>();
 
         /// <summary>
-        /// Скрывает все пункты контекстного меню кроме "EKF Set Home Origin" или возвращает их обратно.
+        /// Управляет видимостью пунктов контекстного меню карты.
+        /// При включённом <paramref name="hideOthers"/> скрывает все пункты,
+        /// кроме разрешённых (их список загружается из настроек по ключу "AllowedContextMenuMapItems").
+        /// При выключенном — делает все пункты видимыми.
+        ///
+        /// Если в настройках список отсутствует, по умолчанию разрешён только пункт с именем "setHomeHereToolStripMenuItem".
         /// </summary>
-        /// <param name="hideOthers">Если true, скрывает все пункты кроме "EKF Set Home Origin". Если false, возвращает всё как было.</param>
+        /// <param name="hideOthers">
+        /// true — скрыть все пункты, кроме разрешённых;
+        /// false — показать все пункты.
+        /// </param>
+        /// <summary>
+        /// Управляет видимостью пунктов контекстного меню карты.
+        /// Если <paramref name="hideOthers"/> == true, то отображаются только пункты,
+        /// перечисленные в настройке AllowedContextMenuMapItems.
+        /// Если список пуст, отображаются все пункты (временно, пока пользователь не сделал выбор).
+        /// </summary>
         public void ToggleContextMenuItems(bool hideOthers)
         {
-            if (contextMenuStripMap == null) return;
-
-            if (hideOthers)
-            {
-                toggledMenu = true;
-                // Сохраняем оригинальные пункты меню, если они ещё не сохранены
-                if (originalMenuItems.Count == 0)
-                {
-                    foreach (ToolStripItem item in contextMenuStripMap.Items)
-                    {
-                        if (item is ToolStripMenuItem menuItem)
-                        {
-                            originalMenuItems.Add(menuItem);
-                        }
-                    }
-                }
-
-                // Скрываем все пункты, кроме "Set Home Here"
-                foreach (ToolStripItem item in contextMenuStripMap.Items)
-                {
-                    if (item is ToolStripMenuItem menuItem)
-                    {
-                        menuItem.Visible = menuItem.Text == "Set Home Here";
-                    }
-                }
+            if (contextMenuStripMap == null) { 
+            log.Warn("Context Menu is NULL");
+            return;
             }
-            else
+
+            var allowedItems = new HashSet<string>(
+                Settings.Instance.GetList("AllowedContextMenuMapItems")
+            );
+            log.Info(allowedItems);
+
+            // Если пользователь ещё ничего не выбрал — не скрываем вообще
+            bool allowAll = allowedItems.Count == 0;
+
+            foreach (ToolStripItem item in contextMenuStripMap.Items)
             {
-                // Восстанавливаем оригинальные пункты меню
-                foreach (ToolStripItem item in contextMenuStripMap.Items)
+                if (item is ToolStripMenuItem menuItem)
                 {
-                    if (item is ToolStripMenuItem menuItem)
-                    {
-                        menuItem.Visible = originalMenuItems.Contains(menuItem);
-                    }
+                    menuItem.Visible = hideOthers
+                        ? (allowAll || allowedItems.Contains(menuItem.Name))
+                        : true;
                 }
             }
         }
+
+
+
     }
 }

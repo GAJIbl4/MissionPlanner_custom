@@ -117,53 +117,41 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="MenuSimulation.ToolTipText" xml:space="preserve">
-    <value>Моделирование</value>
+  <data name="autoHideToolStripMenuItem.Text" xml:space="preserve">
+    <value>Авто-скрытие</value>
   </data>
-  <data name="MenuFlightPlanner.Text" xml:space="preserve">
-    <value>ПЛАН ПОЛЕТА</value>
-  </data>
-  <data name="MenuHelp.Text" xml:space="preserve">
-    <value>ПОМОЩЬ</value>
-  </data>
-  <data name="connectionListToolStripMenuItem.Text" xml:space="preserve">
-    <value>Список подключений</value>
-  </data>
-  <data name="MenuInitConfig.ToolTipText" xml:space="preserve">
-    <value>Конфигурация оборудования</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Планировщик миссии - Майкл Оборн</value>
-  </data>
-  <data name="connectionOptionsToolStripMenuItem.Text" xml:space="preserve">
-    <value>Параметры подключения</value>
-  </data>
-  <data name="MenuTerminal.Text" xml:space="preserve">
-    <value>ТЕРМИНАЛ</value>
-  </data>
-  <data name="MenuDonate.Text" xml:space="preserve">
-    <value>ПОБЛАГОДАРИТЬ</value>
+  <data name="fullScreenToolStripMenuItem.Text" xml:space="preserve">
+    <value>Полноэкранный</value>
   </data>
   <data name="readonlyToolStripMenuItem.Text" xml:space="preserve">
     <value>ТолькоЧтение</value>
   </data>
+  <data name="connectionOptionsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Параметры подключения</value>
+  </data>
+  <data name="connectionListToolStripMenuItem.Text" xml:space="preserve">
+    <value>Список подключений</value>
+  </data>
   <data name="MenuFlightData.Text" xml:space="preserve">
     <value>ПОЛЕТНЫЕ ДАННЫЕ</value>
   </data>
-  <data name="MenuInitConfig.Text" xml:space="preserve">
-    <value>НАЧАЛЬНАЯ НАСТРОЙКА</value>
+  <data name="MenuFlightData.ToolTipText" xml:space="preserve">
+    <value>Данные в полете</value>
   </data>
-  <data name="MenuConnect.Text" xml:space="preserve">
-    <value>СОЕДИНИТЬ</value>
+  <data name="MenuFlightPlanner.Text" xml:space="preserve">
+    <value>ПЛАН ПОЛЕТА</value>
   </data>
   <data name="MenuFlightPlanner.ToolTipText" xml:space="preserve">
     <value>Планировщик полетов</value>
   </data>
+  <data name="MenuInitConfig.Text" xml:space="preserve">
+    <value>НАЧАЛЬНАЯ НАСТРОЙКА</value>
+  </data>
+  <data name="MenuInitConfig.ToolTipText" xml:space="preserve">
+    <value>Конфигурация оборудования</value>
+  </data>
   <data name="MenuConfigTune.Text" xml:space="preserve">
     <value>НАСТРОЙКА</value>
-  </data>
-  <data name="MenuFlightData.ToolTipText" xml:space="preserve">
-    <value>Данные в полете</value>
   </data>
   <data name="MenuConfigTune.ToolTipText" xml:space="preserve">
     <value>Настройка программного обеспечения</value>
@@ -171,22 +159,37 @@
   <data name="MenuSimulation.Text" xml:space="preserve">
     <value>МОДЕЛИРОВАНИЕ</value>
   </data>
+  <data name="MenuSimulation.ToolTipText" xml:space="preserve">
+    <value>Моделирование</value>
+  </data>
+  <data name="MenuHelp.Text" xml:space="preserve">
+    <value>ПОМОЩЬ</value>
+  </data>
   <data name="MenuHelp.ToolTipText" xml:space="preserve">
     <value>Помощь</value>
   </data>
-  <data name="MenuTerminal.ToolTipText" xml:space="preserve">
-    <value>Терминал</value>
+  <data name="MenuCustomSettingsButton.Text" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="MenuConnect.Text" xml:space="preserve">
+    <value>СОЕДИНИТЬ</value>
   </data>
   <data name="menu.Text" xml:space="preserve">
     <value>Меню</value>
   </data>
-  <data name="fullScreenToolStripMenuItem.Text" xml:space="preserve">
-    <value>Полноэкранный</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Планировщик миссии - Майкл Оборн</value>
   </data>
-  <data name="autoHideToolStripMenuItem.Text" xml:space="preserve">
-    <value>Авто-скрытие</value>
+  <data name="MenuDonate.Text" xml:space="preserve">
+    <value>ПОБЛАГОДАРИТЬ</value>
+  </data>
+  <data name="MenuTerminal.ToolTipText" xml:space="preserve">
+    <value>Терминал</value>
   </data>
   <data name="MenuDonate.ToolTipText" xml:space="preserve">
     <value>Поблагодарить</value>
+  </data>
+  <data name="MenuTerminal.Text" xml:space="preserve">
+    <value>ТЕРМИНАЛ</value>
   </data>
 </root>

@@ -3596,6 +3596,15 @@ namespace MissionPlanner
 
             try
             {
+                ApplySavedMenuVisibility();
+            }
+            catch (Exception ex)
+            {
+                log.Error("Error applying saved menu visibility", ex);
+            }
+
+            try
+            {
                 // prescan
                 MissionPlanner.Comms.CommsBLE.SerialPort_GetCustomPorts();
             }
@@ -4655,82 +4664,153 @@ namespace MissionPlanner
         {
             try
             {
-                // Create a new form for menu visibility settings  
                 Form visibilityForm = new Form
                 {
-                    Text = "Настройки видимости кнопок",
-                    Size = new Size(300, 400),
+                    Text = "Настройки видимости элементов",
+                    Size = new Size(400, 600),
                     FormBorderStyle = FormBorderStyle.FixedDialog,
                     MaximizeBox = false,
                     MinimizeBox = false,
                     StartPosition = FormStartPosition.CenterScreen
                 };
 
-                // Create a panel to hold the checkboxes  
                 FlowLayoutPanel panel = new FlowLayoutPanel
                 {
                     Dock = DockStyle.Fill,
-                    AutoScroll = true
+                    AutoScroll = true,
+                    FlowDirection = FlowDirection.TopDown,
+                    WrapContents = false
                 };
 
-                // Create checkboxes for each menu button  
-                var menuItems = new Dictionary<string, ToolStripButton>
-               {
-                   { "Полетные данные", MenuFlightData },
-                   { "Планировщик полета", MenuFlightPlanner },
-                   { "Настройка оборудования", MenuInitConfig },
-                   { "Симуляция", MenuSimulation },
-                   { "Настройка ПО", MenuConfigTune },
-                   { "Подключение", MenuConnect },
-                   { "Помощь", MenuHelp },
-                   { "Кастомные настройки", MenuCustomSettingsButton }
-               };
-
-                foreach (var item in menuItems)
+                // ===== Главное меню =====
+                panel.Controls.Add(new Label
                 {
+                    Text = "Главное меню",
+                    Font = new Font(SystemFonts.DefaultFont, FontStyle.Bold),
+                    AutoSize = true,
+                    Margin = new Padding(5, 10, 0, 5)
+                });
+
+                var menuButtons = new Dictionary<string, ToolStripButton>
+        {
+            { "MenuFlightData", MenuFlightData },
+            { "MenuFlightPlanner", MenuFlightPlanner },
+            { "MenuInitConfig", MenuInitConfig },
+            { "MenuSimulation", MenuSimulation },
+            { "MenuConfigTune", MenuConfigTune },
+            { "MenuConnect", MenuConnect },
+            { "MenuHelp", MenuHelp },
+            { "MenuCustomSettingsButton", MenuCustomSettingsButton }
+        };
+
+                foreach (var item in menuButtons)
+                {
+                    string key = "MenuVisible_" + item.Key;
+                    bool currentValue = Settings.Instance.GetBoolean(key, true);
+
                     CheckBox checkBox = new CheckBox
                     {
-                        Text = item.Key,
-                        Checked = item.Value.Visible,
+                        Text = item.Value.Text, // <-- используем текущий текст кнопки
+                        Checked = currentValue,
                         AutoSize = true
                     };
 
-                    // Bind checkbox state to menu item visibility  
                     checkBox.CheckedChanged += (s, args) =>
                     {
+                        Settings.Instance[key] = checkBox.Checked.ToString();
                         item.Value.Visible = checkBox.Checked;
+                        Settings.Instance.Save();
                     };
 
                     panel.Controls.Add(checkBox);
                 }
 
-                // Add a separate checkbox for modifying the map context menu  
-                CheckBox mapContextMenuCheckBox = new CheckBox
+                // ===== Контекстное меню карты =====
+                GroupBox contextGroupBox = new GroupBox
                 {
-                    Text = "Изменить контекстное меню карты",
-                    Checked = false,
+                    Text = "Контекстное меню карты",
+                    AutoSize = true,
+                    AutoSizeMode = AutoSizeMode.GrowAndShrink,
+                    Padding = new Padding(10),
+                    Margin = new Padding(10)
+                };
+
+                FlowLayoutPanel contextMenuPanel = new FlowLayoutPanel
+                {
+                    Dock = DockStyle.Fill,
+                    AutoSize = true,
+                    FlowDirection = FlowDirection.TopDown,
+                    WrapContents = false
+                };
+
+                const string mapMenuToggleKey = "MapContextMenuEnabled";
+                bool toggleContextMenu = Settings.Instance.GetBoolean(mapMenuToggleKey, true);
+
+                CheckBox globalMapMenuCheckBox = new CheckBox
+                {
+                    Text = "Включить фильтрацию контекстного меню",
+                    Checked = toggleContextMenu,
                     AutoSize = true
                 };
 
-                mapContextMenuCheckBox.CheckedChanged += (s, args) =>
+                contextMenuPanel.Controls.Add(globalMapMenuCheckBox);
+
+                var itemCheckboxes = new List<CheckBox>();
+
+                if (FlightData.contextMenuStripMap is ContextMenuStrip mapMenu)
                 {
-                    if (mapContextMenuCheckBox.Checked)
+                    var allowedNames = Settings.Instance.GetList("AllowedContextMenuMapItems").ToHashSet();
+
+                    foreach (ToolStripItem item in mapMenu.Items)
                     {
-                        FlightData.ToggleContextMenuItems(true);
+                        if (item is ToolStripMenuItem menuItem && !string.IsNullOrEmpty(menuItem.Name))
+                        {
+                            bool allowed = allowedNames.Count == 0 || allowedNames.Contains(menuItem.Name);
+
+                            var itemCheckbox = new CheckBox
+                            {
+                                Text = menuItem.Text, // <-- используем локализованный текст
+                                Checked = allowed,
+                                Enabled = toggleContextMenu,
+                                AutoSize = true,
+                                Font = new Font(SystemFonts.DefaultFont.FontFamily, SystemFonts.DefaultFont.Size - 1)
+                            };
+
+                            itemCheckbox.CheckedChanged += (s, args) =>
+                            {
+                                if (itemCheckbox.Checked)
+                                    allowedNames.Add(menuItem.Name);
+                                else
+                                    allowedNames.Remove(menuItem.Name);
+
+                                Settings.Instance.SetList("AllowedContextMenuMapItems", allowedNames);
+                                Settings.Instance.Save();
+
+                                FlightData.ToggleContextMenuItems(globalMapMenuCheckBox.Checked);
+                            };
+
+                            contextMenuPanel.Controls.Add(itemCheckbox);
+                            itemCheckboxes.Add(itemCheckbox);
+                        }
                     }
-                    else
+
+                    globalMapMenuCheckBox.CheckedChanged += (s, args) =>
                     {
-                        FlightData.ToggleContextMenuItems(true);
+                        bool enabled = globalMapMenuCheckBox.Checked;
+                        Settings.Instance[mapMenuToggleKey] = enabled.ToString();
+                        Settings.Instance.Save();
 
-                    }
-                };
+                        foreach (var cb in itemCheckboxes)
+                            cb.Enabled = enabled;
 
-                panel.Controls.Add(mapContextMenuCheckBox);
+                        FlightData.ToggleContextMenuItems(enabled);
+                    };
+                }
 
-                // Add panel to the form  
+                contextGroupBox.Controls.Add(contextMenuPanel);
+                panel.Controls.Add(contextGroupBox);
+
                 visibilityForm.Controls.Add(panel);
-
-                // Show the form  
                 visibilityForm.ShowDialog();
             }
             catch (Exception ex)
@@ -4738,6 +4818,59 @@ namespace MissionPlanner
                 CustomMessageBox.Show($"Ошибка: {ex.Message}", "Ошибка");
             }
         }
+
+
+        private string GetDisplayName(string key)
+        {
+            switch (key)
+            {
+                case "MenuFlightData":
+                    return "Полетные данные";
+                case "MenuFlightPlanner":
+                    return "Планировщик полета";
+                case "MenuInitConfig":
+                    return "Настройка оборудования";
+                case "MenuSimulation":
+                    return "Симуляция";
+                case "MenuConfigTune":
+                    return "Настройка ПО";
+                case "MenuConnect":
+                    return "Подключение";
+                case "MenuHelp":
+                    return "Помощь";
+                case "MenuCustomSettingsButton":
+                    return "Кастомные настройки";
+                default:
+                    return key;
+            }
+        }
+
+        private void ApplySavedMenuVisibility()
+        {
+            var menuItems = new Dictionary<string, ToolStripButton>
+    {
+        { "MenuFlightData", MenuFlightData },
+        { "MenuFlightPlanner", MenuFlightPlanner },
+        { "MenuInitConfig", MenuInitConfig },
+        { "MenuSimulation", MenuSimulation },
+        { "MenuConfigTune", MenuConfigTune },
+        { "MenuConnect", MenuConnect },
+        { "MenuHelp", MenuHelp },
+        { "MenuCustomSettingsButton", MenuCustomSettingsButton }
+    };
+
+            foreach (var item in menuItems)
+            {
+                bool isVisible = Settings.Instance.GetBoolean("MenuVisible_" + item.Key, true);
+                item.Value.Visible = isVisible;
+            }
+
+            bool mapContextMenuEnabled = Settings.Instance.GetBoolean("MapContextMenuEnabled", true);
+            FlightData.ToggleContextMenuItems(mapContextMenuEnabled);
+        }
+
+
+
 
         private void connectionListToolStripMenuItem_Click(object sender, EventArgs e)
         {
