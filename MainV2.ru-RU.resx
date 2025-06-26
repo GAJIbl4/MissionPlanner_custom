@@ -178,7 +178,7 @@
     <value>Меню</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Планировщик миссии</value>
+    <value>Mission Planner</value>
   </data>
   <data name="MenuDonate.Text" xml:space="preserve">
     <value>ПОБЛАГОДАРИТЬ</value>
