@@ -6048,9 +6048,10 @@ namespace MissionPlanner.GCSViews
                 }
             }
 
-            if (Math.Abs(posstart.X - e.X) <=2 && Math.Abs(posstart.Y - e.Y) <=2 && e.Button == MouseButtons.Left)
+            if (Math.Abs(posstart.X - e.X) <=2 && Math.Abs(posstart.Y - e.Y) <=2 && e.Button == MouseButtons.Right)
             {
-               // contextMenuStripMap.Show(gMapControl1, e.Location);
+               this.ToggleContextMenuItems(Settings.Instance.GetBoolean("MapContextMenuEnabled", true));
+               contextMenuStripMap.Show(gMapControl1, e.Location);
             }
         }
 
@@ -6650,7 +6651,6 @@ namespace MissionPlanner.GCSViews
             form.Show(this);
         }
 
-        private List<ToolStripMenuItem> originalMenuItems = new List<ToolStripMenuItem>();
 
         /// <summary>
         /// Управляет видимостью пунктов контекстного меню карты.
@@ -6695,6 +6695,8 @@ namespace MissionPlanner.GCSViews
                 }
             }
         }
+
+
 
 
 
