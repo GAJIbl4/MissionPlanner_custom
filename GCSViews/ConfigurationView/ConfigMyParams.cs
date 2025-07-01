@@ -18,7 +18,7 @@ using System.Windows.Forms;
 
 namespace MissionPlanner.GCSViews.ConfigurationView
 {
-    public partial class configMyParams : MyUserControl, IActivate, IDeactivate
+    public partial class configMyParams : MyUserControl
     {
         // Включаем логи
         private static readonly ILog log =
@@ -41,18 +41,6 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             InitializeComponent();
             log.Info("configMyParams constructor called");
             processToScreen();
-        }
-
-        public void Activate()
-        {
-            // Logic to execute when activated
-            log.Info("ConfigMyParams activated");
-        }
-
-        public void Deactivate()
-        {
-            // Logic to execute when deactivated
-            log.Info("ConfigMyParams deactivated");
         }
 
         private void writeButton_Click(object sender, EventArgs e)
@@ -192,13 +180,15 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                     refreshButton_Click(refreshButton, null);
                 }
             }
+
+            this.unsavedLabel_Toggle();
         }
 
         private void refreshButton_Click(object sender, EventArgs e)
         {
-            log.Info("Refresh button clicked");
             if (!MainV2.comPort.BaseStream.IsOpen)
                 return;
+
 
             if (!MainV2.comPort.MAV.cs.armed || DialogResult.OK ==
                 Common.MessageShowAgain("Refresh Params", Strings.WarningUpdateParamList, true))
@@ -224,6 +214,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             }
 
+            this.unsavedLabel_Toggle();
         }
 
         internal void processToScreen()
@@ -343,6 +334,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             Params.Visible = true;
 
+            this.unsavedLabel_Toggle();
+
             log.Info("Done");
         }
         private static string AddNewLinesForTooltip(string text)
@@ -444,6 +437,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 Params.CellValueChanged -= Params_CellValueChanged;
                 Params[e.ColumnIndex, e.RowIndex].Value = newvalue.ToString();
                 Params.CellValueChanged += Params_CellValueChanged;
+
+                this.unsavedLabel_Toggle();
             }
             catch (Exception)
             {
@@ -453,5 +448,18 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             Params.Focus();
         }
+
+        private void unsavedLabel_Toggle()
+        {
+            if (_changes.Count != 0)
+            {
+                writeButton.Enabled = true;
+            }
+            else
+            {
+                writeButton.Enabled = false;
+            }
+        }
     }
+
 }

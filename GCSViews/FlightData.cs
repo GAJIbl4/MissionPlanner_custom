@@ -6051,6 +6051,7 @@ namespace MissionPlanner.GCSViews
 
             if (Math.Abs(posstart.X - e.X) <=2 && Math.Abs(posstart.Y - e.Y) <=2 && e.Button == MouseButtons.Right)
             {
+               this.ToggleContextMenuItems();
                contextMenuStripMap.Show(gMapControl1, e.Location);
             }
         }
