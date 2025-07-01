@@ -34,10 +34,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.Params = new MissionPlanner.Controls.MyDataGridView();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.writeButton = new MissionPlanner.Controls.MyButton();
-            this.refreshButton = new MissionPlanner.Controls.MyButton();
-            this.compareButton = new MissionPlanner.Controls.MyButton();
             this.OptionName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Value = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Default = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +41,9 @@
             this.Options = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fav = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.writeButton = new MissionPlanner.Controls.MyButton();
+            this.refreshButton = new MissionPlanner.Controls.MyButton();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Params)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -110,60 +109,7 @@
             this.Params.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.Params.Size = new System.Drawing.Size(764, 626);
             this.Params.TabIndex = 72;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.writeButton, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.refreshButton, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.compareButton, 0, 2);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(773, 3);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 3;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(159, 626);
-            this.tableLayoutPanel2.TabIndex = 1;
-            // 
-            // writeButton
-            // 
-            this.writeButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.writeButton.Location = new System.Drawing.Point(3, 3);
-            this.writeButton.Name = "writeButton";
-            this.writeButton.Size = new System.Drawing.Size(153, 23);
-            this.writeButton.TabIndex = 0;
-            this.writeButton.Text = "Записать";
-            this.writeButton.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
-            this.writeButton.UseVisualStyleBackColor = true;
-            this.writeButton.Click += new System.EventHandler(this.writeButton_Click);
-            // 
-            // refreshButton
-            // 
-            this.refreshButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.refreshButton.Location = new System.Drawing.Point(3, 32);
-            this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(153, 23);
-            this.refreshButton.TabIndex = 1;
-            this.refreshButton.Text = "Обновить";
-            this.refreshButton.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
-            this.refreshButton.UseVisualStyleBackColor = true;
-            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
-            // 
-            // compareButton
-            // 
-            this.compareButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.compareButton.Location = new System.Drawing.Point(3, 61);
-            this.compareButton.Name = "compareButton";
-            this.compareButton.Size = new System.Drawing.Size(153, 23);
-            this.compareButton.TabIndex = 2;
-            this.compareButton.Text = "Сравнить";
-            this.compareButton.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
-            this.compareButton.UseVisualStyleBackColor = true;
-            this.compareButton.Visible = false;
-            this.compareButton.Click += new System.EventHandler(this.compareButton_Click);
+            this.Params.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.Params_CellValueChanged);
             // 
             // OptionName
             // 
@@ -233,6 +179,46 @@
             this.Fav.Visible = false;
             this.Fav.Width = 30;
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.writeButton, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.refreshButton, 0, 1);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(773, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(159, 626);
+            this.tableLayoutPanel2.TabIndex = 1;
+            // 
+            // writeButton
+            // 
+            this.writeButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.writeButton.Location = new System.Drawing.Point(3, 3);
+            this.writeButton.Name = "writeButton";
+            this.writeButton.Size = new System.Drawing.Size(153, 23);
+            this.writeButton.TabIndex = 0;
+            this.writeButton.Text = "Записать";
+            this.writeButton.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.writeButton.UseVisualStyleBackColor = true;
+            this.writeButton.Click += new System.EventHandler(this.writeButton_Click);
+            // 
+            // refreshButton
+            // 
+            this.refreshButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.refreshButton.Location = new System.Drawing.Point(3, 32);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(153, 23);
+            this.refreshButton.TabIndex = 1;
+            this.refreshButton.Text = "Обновить";
+            this.refreshButton.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
+            this.refreshButton.UseVisualStyleBackColor = true;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
+            // 
             // configMyParams
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -254,7 +240,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private Controls.MyButton writeButton;
         private Controls.MyButton refreshButton;
-        private Controls.MyButton compareButton;
         private Controls.MyDataGridView Params;
         private System.Windows.Forms.DataGridViewTextBoxColumn OptionName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Value;

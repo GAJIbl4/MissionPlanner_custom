@@ -76,10 +76,10 @@ namespace MissionPlanner.GCSViews
 
                 foreach (var button in contextMapButtons)
                 {
-                    var isChecked = true;
+                    var isChecked = false;
                     if (allowedList.Contains(button.Name))
                     {
-                        isChecked = false;
+                        isChecked = true;
                     }
                     var checkboxItem = new MyCheckBoxItem(button.Name, button.Text, isChecked);
                     this.mapContextMenuChecklist.Items.Add(checkboxItem, checkboxItem.IsChecked);

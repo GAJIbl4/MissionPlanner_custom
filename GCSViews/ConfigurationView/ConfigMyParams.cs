@@ -2,7 +2,9 @@
 using Microsoft.Diagnostics.Runtime.ICorDebug;
 using MissionPlanner.Controls;
 using MissionPlanner.Utilities;
+using org.mariuszgromada.math.mxparser;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,8 +31,9 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         private const string parameterPrefix = "AHRS";
         // Флаг для проверки, что параметры уже загружены
         private bool startup = false;
-        // Словарь для хранения изменений параметров
-        private Dictionary<string, object> _changes = new Dictionary<string, object>();
+        private readonly Hashtable _changes = new Hashtable();
+        private string cellEditValue;
+
 
 
         public configMyParams()
@@ -340,11 +343,6 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             Params.Visible = true;
 
-            //if (splitContainer1.Panel1Collapsed == false)
-            //{
-            //    BuildTree();
-            //}
-
             log.Info("Done");
         }
         private static string AddNewLinesForTooltip(string text)
@@ -375,9 +373,85 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             return sb.ToString();
         }
 
-        private void compareButton_Click(object sender, EventArgs e)
+        private void Params_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex == -1 || e.ColumnIndex == -1 || startup || e.ColumnIndex != Value.Index)
+                return;
+            try
+            {
+                if (Params[OptionName.Index, e.RowIndex].Value.ToString().EndsWith("_REV") &&
+                    (Params[OptionName.Index, e.RowIndex].Value.ToString().StartsWith("RC") ||
+                     Params[OptionName.Index, e.RowIndex].Value.ToString().StartsWith("HS")))
+                {
+                    if (Params[e.ColumnIndex, e.RowIndex].Value.ToString() == "0")
+                        Params[e.ColumnIndex, e.RowIndex].Value = "-1";
+                }
 
+                double min = 0;
+                double max = 0;
+
+                var value = Params[e.ColumnIndex, e.RowIndex].Value.ToString();
+                value = value.Replace(',', '.');
+
+                var newvalue = (double) new Expression(value).calculate();
+                if (double.IsNaN(newvalue) || double.IsInfinity(newvalue))
+                {
+                    throw new Exception();
+                }
+
+                var readonly1 = ParameterMetaDataRepository.GetParameterMetaData(
+                    Params[OptionName.Index, e.RowIndex].Value.ToString(),
+                    ParameterMetaDataConstants.ReadOnly, MainV2.comPort.MAV.cs.firmware.ToString());
+                if (!String.IsNullOrEmpty(readonly1))
+                {
+                    var readonly2 = bool.Parse(readonly1);
+                    if (readonly2)
+                    {
+                        CustomMessageBox.Show(
+                            Params[OptionName.Index, e.RowIndex].Value +
+                            " is marked as ReadOnly, and will not be changed", "ReadOnly",
+                            MessageBoxButtons.OK);
+                        Params.CellValueChanged -= Params_CellValueChanged;
+                        Params[e.ColumnIndex, e.RowIndex].Value = cellEditValue;
+                        Params.CellValueChanged += Params_CellValueChanged;
+                        return;
+                    }
+                }
+
+                if (ParameterMetaDataRepository.GetParameterRange(Params[OptionName.Index, e.RowIndex].Value.ToString(),
+                    ref min, ref max, MainV2.comPort.MAV.cs.firmware.ToString()))
+                {
+                    if (newvalue > max || newvalue < min)
+                    {
+                        if (
+                            CustomMessageBox.Show(
+                                Params[OptionName.Index, e.RowIndex].Value +
+                                " value is out of range. Do you want to continue?", "Out of range",
+                                MessageBoxButtons.YesNo) == (int)DialogResult.No)
+                        {
+                            Params.CellValueChanged -= Params_CellValueChanged;
+                            Params[e.ColumnIndex, e.RowIndex].Value = cellEditValue;
+                            Params.CellValueChanged += Params_CellValueChanged;
+                            return;
+                        }
+                    }
+                }
+
+                Params[e.ColumnIndex, e.RowIndex].Style.BackColor = Color.Green;
+                log.InfoFormat("Queue change {0} = {1} ({2})", Params[OptionName.Index, e.RowIndex].Value, Params[e.ColumnIndex, e.RowIndex].Value, newvalue);
+                _changes[Params[OptionName.Index, e.RowIndex].Value] = newvalue;
+
+                Params.CellValueChanged -= Params_CellValueChanged;
+                Params[e.ColumnIndex, e.RowIndex].Value = newvalue.ToString();
+                Params.CellValueChanged += Params_CellValueChanged;
+            }
+            catch (Exception)
+            {
+                Params[e.ColumnIndex, e.RowIndex].Style.BackColor = Color.Red;
+            }
+
+
+            Params.Focus();
         }
     }
 }

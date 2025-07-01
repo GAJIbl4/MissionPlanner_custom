@@ -544,6 +544,7 @@ namespace MissionPlanner.GCSViews
 
             // update tabs displayed
             updateDisplayView();
+            ToggleContextMenuItems();
 
             hud1.doResize();
         }
@@ -6050,7 +6051,6 @@ namespace MissionPlanner.GCSViews
 
             if (Math.Abs(posstart.X - e.X) <=2 && Math.Abs(posstart.Y - e.Y) <=2 && e.Button == MouseButtons.Right)
             {
-               this.ToggleContextMenuItems(Settings.Instance.GetBoolean("MapContextMenuEnabled", true));
                contextMenuStripMap.Show(gMapControl1, e.Location);
             }
         }
@@ -6670,7 +6670,7 @@ namespace MissionPlanner.GCSViews
         /// перечисленные в настройке AllowedContextMenuMapItems.
         /// Если список пуст, отображаются все пункты (временно, пока пользователь не сделал выбор).
         /// </summary>
-        public void ToggleContextMenuItems(bool hideOthers)
+        public void ToggleContextMenuItems()
         {
             if (contextMenuStripMap == null) { 
             log.Warn("Context Menu is NULL");
@@ -6680,25 +6680,15 @@ namespace MissionPlanner.GCSViews
             var allowedItems = new HashSet<string>(
                 Settings.Instance.GetList("AllowedContextMenuMapItems")
             );
-            log.Info(allowedItems);
 
-            // Если пользователь ещё ничего не выбрал — не скрываем вообще
-            bool allowAll = allowedItems.Count == 0;
 
             foreach (ToolStripItem item in contextMenuStripMap.Items)
             {
                 if (item is ToolStripMenuItem menuItem)
                 {
-                    menuItem.Visible = hideOthers
-                        ? (allowAll || allowedItems.Contains(menuItem.Name))
-                        : true;
+                    menuItem.Visible = allowedItems.Contains(menuItem.Name);
                 }
             }
         }
-
-
-
-
-
     }
 }

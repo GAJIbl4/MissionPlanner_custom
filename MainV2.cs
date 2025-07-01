@@ -4705,8 +4705,7 @@ namespace MissionPlanner
                 item.Value.Visible = isVisible;
             }
 
-            bool mapContextMenuEnabled = Settings.Instance.GetBoolean("MapContextMenuEnabled", true);
-            FlightData.ToggleContextMenuItems(mapContextMenuEnabled);
+            FlightData.ToggleContextMenuItems();
         }
 
         private void connectionListToolStripMenuItem_Click(object sender, EventArgs e)
