@@ -217,10 +217,10 @@
     <value>Логи телеметрии</value>
   </data>
   <data name="goHereToolStripMenuItem.Text" xml:space="preserve">
-    <value>Задать точку</value>
+    <value>Лететь сюда</value>
   </data>
   <data name="flyToHereAltToolStripMenuItem.Text" xml:space="preserve">
-    <value>Задать высоту точки</value>
+    <value>Задать высоту точки (лететь сюда)</value>
   </data>
   <data name="setEKFHomeHereToolStripMenuItem.Text" xml:space="preserve">
     <value>EKF исходная точка</value>
@@ -317,7 +317,7 @@
     <value>HUD на русском</value>
   </data>
   <data name="swapWithMapToolStripMenuItem.Text" xml:space="preserve">
-    <value>Обмен с картой</value>
+    <value>Поменять местами с картой</value>
   </data>
   <data name="groundColorToolStripMenuItem.Text" xml:space="preserve">
     <value>Цвет земли</value>
@@ -344,7 +344,7 @@
     <value>Дважды щелкните меня, чтобы изменить</value>
   </data>
   <data name="tabQuick.Text" xml:space="preserve">
-    <value>Быстрые настройки</value>
+    <value>Панель приборов</value>
   </data>
   <data name="BUT_SendMSG.Text" xml:space="preserve">
     <value>Сообщение</value>
@@ -416,7 +416,7 @@
     <value>GPS недоступен</value>
   </data>
   <data name="fault_clb.Items2" xml:space="preserve">
-    <value>GPS нет точки</value>
+    <value>GPS нет коорд</value>
   </data>
   <data name="fault_clb.Items3" xml:space="preserve">
     <value>TX Sys. Проблема</value>
