@@ -56,6 +56,7 @@ namespace MissionPlanner
             this.menu = new MissionPlanner.Controls.MyButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.status1 = new MissionPlanner.Controls.Status();
+            this.RTSPButton = new System.Windows.Forms.ToolStripButton();
             this.MainMenu.SuspendLayout();
             this.CTX_mainmenu.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -75,6 +76,7 @@ namespace MissionPlanner
             this.MenuSimulation,
             this.MenuHelp,
             this.MenuCustomSettingsButton,
+            this.RTSPButton,
             this.MenuConnect,
             this.toolStripConnectionControl,
             this.MenuArduPilot});
@@ -235,6 +237,14 @@ namespace MissionPlanner
             this.status1.Name = "status1";
             this.status1.Percent = 0D;
             // 
+            // RTSPButton
+            // 
+            this.RTSPButton.ForeColor = System.Drawing.Color.Azure;
+            this.RTSPButton.Image = global::MissionPlanner.Properties.Resources.camera_icon;
+            this.RTSPButton.Name = "RTSPButton";
+            resources.ApplyResources(this.RTSPButton, "RTSPButton");
+            this.RTSPButton.Click += new System.EventHandler(this.RTSPButton_Click);
+            // 
             // MainV2
             // 
             resources.ApplyResources(this, "$this");
@@ -276,5 +286,6 @@ namespace MissionPlanner
         public System.Windows.Forms.ToolStripButton MenuArduPilot;
         public Controls.Status status1;
         public System.Windows.Forms.ToolStripButton MenuCustomSettingsButton;
+        public System.Windows.Forms.ToolStripButton RTSPButton;
     }
 }

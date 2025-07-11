@@ -4848,5 +4848,11 @@ namespace MissionPlanner
         {
             MyView.ShowScreen("CustomParams");
         }
+
+        private void RTSPButton_Click(object sender, EventArgs e)
+        {
+            var form = new RTSPStreamer();
+            form.Show();
+        }
     }
 }
