@@ -9,7 +9,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FFmpeg.AutoGen;
-using Onvif;
 
 namespace MissionPlanner.Controls
 {

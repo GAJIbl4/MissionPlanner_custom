@@ -4665,23 +4665,34 @@ namespace MissionPlanner
         {
             try
             {
-                var menuButtons = new Dictionary<string, ToolStripButton>
+                if (Settings.Instance.GetBoolean("password_protect") == false)
                 {
-                    { "MenuFlightData", MenuFlightData },
-                    { "MenuFlightPlanner", MenuFlightPlanner },
-                    { "MenuInitConfig", MenuInitConfig },
-                    { "MenuSimulation", MenuSimulation },
-                    { "MenuConfigTune", MenuConfigTune },
-                    { "MenuConnect", MenuConnect },
-                    { "MenuHelp", MenuHelp },
-                    { "MenuCustomSettingsButton", MenuCustomSettingsButton }
-                };
+                    MyView.ShowScreen("VisibilityParams");
+                }
+                else
+                {
+                    var pw = "";
+                    if (InputBox.Show("Enter Password", "Please enter your password", ref pw, true) ==
+                        System.Windows.Forms.DialogResult.OK)
+                    {
+                        bool ans = Password.ValidatePassword(pw);
+
+                        if (ans == false)
+                        {
+                            CustomMessageBox.Show("Bad Password", "Bad Password");
+                        }
+                    }
+
+                    if (Password.VerifyPassword(pw))
+                    {
+                        MyView.ShowScreen("VisibilityParams");
+                    }
+                }
             }
             catch (Exception ex)
             {
                 CustomMessageBox.Show($"Ошибка: {ex.Message}", "Ошибка");
             }
-            MyView.ShowScreen("VisibilityParams");
         }
 
 
@@ -4696,7 +4707,8 @@ namespace MissionPlanner
         { "MenuConfigTune", MenuConfigTune },
         { "MenuConnect", MenuConnect },
         { "MenuHelp", MenuHelp },
-        { "MenuCustomSettingsButton", MenuCustomSettingsButton }
+        { "MenuCustomSettingsButton", MenuCustomSettingsButton },
+        { "RTSPButton", RTSPButton }
     };
 
             foreach (var item in menuItems)

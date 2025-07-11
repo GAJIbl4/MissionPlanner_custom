@@ -124,7 +124,7 @@
     <value>ВС</value>
   </data>
   <data name="Bat" xml:space="preserve">
-    <value>Аккум</value>
+    <value>АКБ</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="batt_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -177,13 +177,13 @@
     <value>GPS: Нет GPS</value>
   </data>
   <data name="GPS1" xml:space="preserve">
-    <value>GPS: No Fix</value>
+    <value>GPS: Нет точки</value>
   </data>
   <data name="GPS2" xml:space="preserve">
-    <value>GPS: 2D Fix</value>
+    <value>GPS: 2D Точка</value>
   </data>
   <data name="GPS3" xml:space="preserve">
-    <value>GPS: 3D Fix</value>
+    <value>GPS: 3D Точка</value>
   </data>
   <data name="GPS4" xml:space="preserve">
     <value>GPS: 3D dgps</value>
@@ -195,7 +195,7 @@
     <value>GPS: rtk Fixed</value>
   </data>
   <data name="GS" xml:space="preserve">
-    <value>НС</value>
+    <value>ПС</value>
   </data>
   <data name="N" xml:space="preserve">
     <value>С</value>

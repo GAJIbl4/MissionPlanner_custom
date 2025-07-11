@@ -283,4 +283,355 @@
   <data name="NUM_playbackspeed.ToolTip" xml:space="preserve">
     <value>Скорость воспроизведения</value>
   </data>
+  <data name="addPoiToolStripMenuItem.Text" xml:space="preserve">
+    <value>Добавить точку</value>
+  </data>
+  <data name="ALT_btn.Text" xml:space="preserve">
+    <value>Высота</value>
+  </data>
+  <data name="setMJPEGSourceToolStripMenuItem.Text" xml:space="preserve">
+    <value>Установите источник MJPEG</value>
+  </data>
+  <data name="startCameraToolStripMenuItem.Text" xml:space="preserve">
+    <value>Запустить камеру</value>
+  </data>
+  <data name="setGStreamerSourceToolStripMenuItem.Text" xml:space="preserve">
+    <value>Источник GSTREAMER</value>
+  </data>
+  <data name="hereLinkVideoToolStripMenuItem.Text" xml:space="preserve">
+    <value>Herelink video</value>
+  </data>
+  <data name="gStreamerStopToolStripMenuItem.Text" xml:space="preserve">
+    <value>Gstreamer Stop</value>
+  </data>
+  <data name="videoToolStripMenuItem.Text" xml:space="preserve">
+    <value>Видео</value>
+  </data>
+  <data name="setAspectRatioToolStripMenuItem.Text" xml:space="preserve">
+    <value>Установить соотношение сторон</value>
+  </data>
+  <data name="userItemsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Пользовательские элементы</value>
+  </data>
+  <data name="russianHudToolStripMenuItem.Text" xml:space="preserve">
+    <value>HUD на русском</value>
+  </data>
+  <data name="swapWithMapToolStripMenuItem.Text" xml:space="preserve">
+    <value>Обмен с картой</value>
+  </data>
+  <data name="groundColorToolStripMenuItem.Text" xml:space="preserve">
+    <value>Цвет земли</value>
+  </data>
+  <data name="setBatteryCellCountToolStripMenuItem.Text" xml:space="preserve">
+    <value>Напряжение батареи</value>
+  </data>
+  <data name="showIconsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Показать значки</value>
+  </data>
+  <data name="customizeToolStripMenuItem.Text" xml:space="preserve">
+    <value>Кастомизация</value>
+  </data>
+  <data name="multiLineToolStripMenuItem.Text" xml:space="preserve">
+    <value>MultiLine</value>
+  </data>
+  <data name="setViewCountToolStripMenuItem.Text" xml:space="preserve">
+    <value>Установить количество страниц</value>
+  </data>
+  <data name="undockToolStripMenuItem.Text" xml:space="preserve">
+    <value>Разблокировать</value>
+  </data>
+  <data name="quickView1.ToolTip" xml:space="preserve">
+    <value>Дважды щелкните меня, чтобы изменить</value>
+  </data>
+  <data name="tabQuick.Text" xml:space="preserve">
+    <value>Быстрые настройки</value>
+  </data>
+  <data name="BUT_SendMSG.Text" xml:space="preserve">
+    <value>Сообщение</value>
+  </data>
+  <data name="BUT_SendMSG.ToolTip" xml:space="preserve">
+    <value>Отправить сообщение для сохранения в журнале устройства</value>
+  </data>
+  <data name="BUT_abortland.Text" xml:space="preserve">
+    <value>Отмена посадки</value>
+  </data>
+  <data name="BUT_abortland.ToolTip" xml:space="preserve">
+    <value>Только самолёт</value>
+  </data>
+  <data name="BUT_resumemis.Text" xml:space="preserve">
+    <value>Возобновить задачу</value>
+  </data>
+  <data name="CMB_setwp.Items" xml:space="preserve">
+    <value>0 (точка дома)</value>
+  </data>
+  <data name="BUT_ARM.Text" xml:space="preserve">
+    <value>Arm / Disarm</value>
+  </data>
+  <data name="BUT_ARM.ToolTip" xml:space="preserve">
+    <value>Arm the Mav</value>
+  </data>
+  <data name="BUT_mountmode.Text" xml:space="preserve">
+    <value>Set Mount</value>
+  </data>
+  <data name="BUT_mountmode.ToolTip" xml:space="preserve">
+    <value>Установить другой полетный режим</value>
+  </data>
+  <data name="tabPagemessages.Text" xml:space="preserve">
+    <value>Сообщения</value>
+  </data>
+  <data name="myButton1.Text" xml:space="preserve">
+    <value>Loiter</value>
+  </data>
+  <data name="myButton1.ToolTip" xml:space="preserve">
+    <value>Сменить режим в РУЧНОЙ/СТАБИЛИЗАЦИЯ</value>
+  </data>
+  <data name="myButton2.Text" xml:space="preserve">
+    <value>Вернуться на базу (RTL)</value>
+  </data>
+  <data name="myButton2.ToolTip" xml:space="preserve">
+    <value>Установить режим RTL</value>
+  </data>
+  <data name="myButton3.Text" xml:space="preserve">
+    <value>АВТО</value>
+  </data>
+  <data name="myButton3.ToolTip" xml:space="preserve">
+    <value>Сменить режим на АВТО</value>
+  </data>
+  <data name="tabActionsSimple.Text" xml:space="preserve">
+    <value>Действия</value>
+  </data>
+  <data name="tabPagePreFlight.Text" xml:space="preserve">
+    <value>Предполётные проверки</value>
+  </data>
+  <data name="NACp_lbl.Text" xml:space="preserve">
+    <value>NACp</value>
+  </data>
+  <data name="NIC_lbl.Text" xml:space="preserve">
+    <value>NIC</value>
+  </data>
+  <data name="fault_clb.Items" xml:space="preserve">
+    <value>Maint. Req.</value>
+  </data>
+  <data name="fault_clb.Items1" xml:space="preserve">
+    <value>GPS недоступен</value>
+  </data>
+  <data name="fault_clb.Items2" xml:space="preserve">
+    <value>GPS нет точки</value>
+  </data>
+  <data name="fault_clb.Items3" xml:space="preserve">
+    <value>TX Sys. Проблема</value>
+  </data>
+  <data name="fault_clb.Items4" xml:space="preserve">
+    <value>На земле</value>
+  </data>
+  <data name="XPDRConnect_btn.Text" xml:space="preserve">
+    <value>Подключитесь к транспондеру</value>
+  </data>
+  <data name="Squawk_label.Text" xml:space="preserve">
+    <value>Squawk</value>
+  </data>
+  <data name="FlightID_label.Text" xml:space="preserve">
+    <value>FlightID</value>
+  </data>
+  <data name="IDENT_btn.Text" xml:space="preserve">
+    <value>Идентификатор</value>
+  </data>
+  <data name="STBY_btn.Text" xml:space="preserve">
+    <value>Ожидание</value>
+  </data>
+  <data name="ON_btn.Text" xml:space="preserve">
+    <value>ВКЛЮЧЕН</value>
+  </data>
+  <data name="Mode_clb.Items" xml:space="preserve">
+    <value>Режим А</value>
+  </data>
+  <data name="Mode_clb.Items1" xml:space="preserve">
+    <value>Режим C</value>
+  </data>
+  <data name="Mode_clb.Items2" xml:space="preserve">
+    <value>Режим S</value>
+  </data>
+  <data name="Mode_clb.Items3" xml:space="preserve">
+    <value>1090ES ADS-B OUT</value>
+  </data>
+  <data name="tabTransponder.Text" xml:space="preserve">
+    <value>Транспондер</value>
+  </data>
+  <data name="tabServo.Text" xml:space="preserve">
+    <value>Серво/Реле</value>
+  </data>
+  <data name="tabAuxFunction.Text" xml:space="preserve">
+    <value>Функция Aux</value>
+  </data>
+  <data name="checkBoxRedirectOutput.Text" xml:space="preserve">
+    <value>Перенаправить вывод программы</value>
+  </data>
+  <data name="BUT_edit_selected.Text" xml:space="preserve">
+    <value>Редактировать выбранный скрипт</value>
+  </data>
+  <data name="labelSelectedScript.Text" xml:space="preserve">
+    <value>Выбранный скрипт: нет</value>
+  </data>
+  <data name="BUT_run_script.Text" xml:space="preserve">
+    <value>Запустить скрипт</value>
+  </data>
+  <data name="BUT_abort_script.Text" xml:space="preserve">
+    <value>Прервать бегущий скрипт</value>
+  </data>
+  <data name="labelScriptStatus.Text" xml:space="preserve">
+    <value>Статус скрипта: без запуска сценария</value>
+  </data>
+  <data name="BUT_select_script.Text" xml:space="preserve">
+    <value>Выберите скрипт</value>
+  </data>
+  <data name="tabScripts.Text" xml:space="preserve">
+    <value>Скрипты</value>
+  </data>
+  <data name="BUT_GimbalVideo.Text" xml:space="preserve">
+    <value>Управление видео</value>
+  </data>
+  <data name="groupBoxRoll.Text" xml:space="preserve">
+    <value>Крен</value>
+  </data>
+  <data name="groupBoxYaw.Text" xml:space="preserve">
+    <value>Pan</value>
+  </data>
+  <data name="BUT_resetGimbalPos.Text" xml:space="preserve">
+    <value>Сбросить позицию</value>
+  </data>
+  <data name="groupBoxPitch.Text" xml:space="preserve">
+    <value>Наклон</value>
+  </data>
+  <data name="tabPayload.Text" xml:space="preserve">
+    <value>Управление полезной нагрузкой</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Скорость</value>
+  </data>
+  <data name="BUT_speed10.Text" xml:space="preserve">
+    <value>10x</value>
+  </data>
+  <data name="BUT_speed5.Text" xml:space="preserve">
+    <value>5x</value>
+  </data>
+  <data name="BUT_speed2.Text" xml:space="preserve">
+    <value>2x</value>
+  </data>
+  <data name="BUT_speed1.Text" xml:space="preserve">
+    <value>1x</value>
+  </data>
+  <data name="BUT_speed1_2.Text" xml:space="preserve">
+    <value>0,5</value>
+  </data>
+  <data name="BUT_speed1_4.Text" xml:space="preserve">
+    <value>0,25</value>
+  </data>
+  <data name="BUT_speed1_10.Text" xml:space="preserve">
+    <value>0,1</value>
+  </data>
+  <data name="lbl_playbackspeed.Text" xml:space="preserve">
+    <value>x 1.0</value>
+  </data>
+  <data name="BUT_DFMavlink.Text" xml:space="preserve">
+    <value>Загрузите журнал DataFlash через Mavlink</value>
+  </data>
+  <data name="BUT_georefimage.Text" xml:space="preserve">
+    <value>GEO Справочные изображения</value>
+  </data>
+  <data name="BUT_logbrowse.Text" xml:space="preserve">
+    <value>Просмотрите логи</value>
+  </data>
+  <data name="BUT_matlab.Text" xml:space="preserve">
+    <value>Создайте MATLAB файл</value>
+  </data>
+  <data name="but_bintolog.Text" xml:space="preserve">
+    <value>Преобразовать .bin в .log</value>
+  </data>
+  <data name="but_dflogtokml.Text" xml:space="preserve">
+    <value>Создать KML + GPX</value>
+  </data>
+  <data name="BUT_loganalysis.Text" xml:space="preserve">
+    <value>Авто-анализ</value>
+  </data>
+  <data name="tablogbrowse.Text" xml:space="preserve">
+    <value>Журналы DataFlash</value>
+  </data>
+  <data name="flyToCoordsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Лететь по координатам</value>
+  </data>
+  <data name="deleteToolStripMenuItem.Text" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="saveFileToolStripMenuItem.Text" xml:space="preserve">
+    <value>Сохранить файл</value>
+  </data>
+  <data name="loadFileToolStripMenuItem.Text" xml:space="preserve">
+    <value>Загрузить файл</value>
+  </data>
+  <data name="poiatcoordsToolStripMenuItem.Text" xml:space="preserve">
+    <value>Координаты</value>
+  </data>
+  <data name="pointCameraHereToolStripMenuItem.Text" xml:space="preserve">
+    <value>Установить БПЛА и камеру сюда</value>
+  </data>
+  <data name="PointCameraCoordsToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Установить БПЛА и камеру по координатам</value>
+  </data>
+  <data name="triggerCameraToolStripMenuItem.Text" xml:space="preserve">
+    <value>Сделать снимок СЕЙЧАС</value>
+  </data>
+  <data name="flightPlannerToolStripMenuItem.Text" xml:space="preserve">
+    <value>Планировщик полета</value>
+  </data>
+  <data name="takeOffToolStripMenuItem.Text" xml:space="preserve">
+    <value>Взлёт</value>
+  </data>
+  <data name="onOffCameraOverlapToolStripMenuItem.Text" xml:space="preserve">
+    <value>Перекрытие камеры</value>
+  </data>
+  <data name="jumpToTagToolStripMenuItem.Text" xml:space="preserve">
+    <value>Прыгнуть на метку</value>
+  </data>
+  <data name="gimbalVideoFullSizedToolStripMenuItem.Text" xml:space="preserve">
+    <value>Полноразмерный</value>
+  </data>
+  <data name="gimbalVideoMiniToolStripMenuItem.Text" xml:space="preserve">
+    <value>Мини</value>
+  </data>
+  <data name="gimbalVideoPopOutToolStripMenuItem.Text" xml:space="preserve">
+    <value>Pop Out</value>
+  </data>
+  <data name="gimbalVideoToolStripMenuItem.Text" xml:space="preserve">
+    <value>Gimbal Video</value>
+  </data>
+  <data name="but_disablejoystick.Text" xml:space="preserve">
+    <value>Отключить джойстик</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>GPS-трек (черный)</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Следует к точке</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Прямо к текущему WP</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Текущая точка</value>
+  </data>
+  <data name="lbl_hdop.Text" xml:space="preserve">
+    <value>HDOP: 0</value>
+  </data>
+  <data name="lbl_hdop.ToolTip" xml:space="preserve">
+    <value>GPS HDOP</value>
+  </data>
+  <data name="lbl_sats.Text" xml:space="preserve">
+    <value>SATS: 0</value>
+  </data>
+  <data name="lbl_sats.ToolTip" xml:space="preserve">
+    <value>Количество спутников</value>
+  </data>
+  <data name="openScriptDialog.Filter" xml:space="preserve">
+    <value>Python Files|*.py|All files|*.*  </value>
+  </data>
 </root>

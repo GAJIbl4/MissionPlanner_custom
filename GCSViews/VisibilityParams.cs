@@ -29,9 +29,7 @@ namespace MissionPlanner.GCSViews
 
         public void Activate()
         {
-            log.Info("Visibility params activated");      
-
-
+            log.Info("Visibility params activated");
         }
 
         public void Deactivate()

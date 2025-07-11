@@ -28,7 +28,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         // Максимальная длина строки для подсказки
         private const int maximumSingleLineTooltipLength = 50;
         // Префикс для параметров
-        private const string parameterPrefix = "AHRS";
+        private const string parameterPrefix = "My";
         // Флаг для проверки, что параметры уже загружены
         private bool startup = false;
         private readonly Hashtable _changes = new Hashtable();
