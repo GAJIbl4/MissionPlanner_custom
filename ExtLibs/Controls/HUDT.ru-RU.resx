@@ -174,19 +174,19 @@
     <value>Шрифт</value>
   </data>
   <data name="GPS0" xml:space="preserve">
-    <value>GPS: Нет GPS</value>
+    <value>GPS: Нет датчика</value>
   </data>
   <data name="GPS1" xml:space="preserve">
-    <value>GPS: Нет точки</value>
+    <value>GPS: Нет коорд</value>
   </data>
   <data name="GPS2" xml:space="preserve">
-    <value>GPS: 2D Точка</value>
+    <value>GPS: OK</value>
   </data>
   <data name="GPS3" xml:space="preserve">
-    <value>GPS: 3D Точка</value>
+    <value>GPS: OK</value>
   </data>
   <data name="GPS4" xml:space="preserve">
-    <value>GPS: 3D dgps</value>
+    <value>GPS: OK</value>
   </data>
   <data name="GPS5" xml:space="preserve">
     <value>GPS: rtk Float</value>
