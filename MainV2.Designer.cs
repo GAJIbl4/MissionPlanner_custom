@@ -50,13 +50,13 @@ namespace MissionPlanner
             this.MenuSimulation = new System.Windows.Forms.ToolStripButton();
             this.MenuHelp = new System.Windows.Forms.ToolStripButton();
             this.MenuCustomSettingsButton = new System.Windows.Forms.ToolStripButton();
+            this.RTSPButton = new System.Windows.Forms.ToolStripButton();
             this.MenuConnect = new System.Windows.Forms.ToolStripButton();
             this.toolStripConnectionControl = new MissionPlanner.Controls.ToolStripConnectionControl();
             this.MenuArduPilot = new System.Windows.Forms.ToolStripButton();
             this.menu = new MissionPlanner.Controls.MyButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.status1 = new MissionPlanner.Controls.Status();
-            this.RTSPButton = new System.Windows.Forms.ToolStripButton();
             this.MainMenu.SuspendLayout();
             this.CTX_mainmenu.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -185,6 +185,14 @@ namespace MissionPlanner
             resources.ApplyResources(this.MenuCustomSettingsButton, "MenuCustomSettingsButton");
             this.MenuCustomSettingsButton.Click += new System.EventHandler(this.MenuCustomSettingsButton_Click);
             // 
+            // RTSPButton
+            // 
+            this.RTSPButton.ForeColor = System.Drawing.Color.Azure;
+            this.RTSPButton.Image = global::MissionPlanner.Properties.Resources.camera_icon_G;
+            this.RTSPButton.Name = "RTSPButton";
+            resources.ApplyResources(this.RTSPButton, "RTSPButton");
+            this.RTSPButton.Click += new System.EventHandler(this.RTSPButton_Click);
+            // 
             // MenuConnect
             // 
             this.MenuConnect.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -236,14 +244,6 @@ namespace MissionPlanner
             resources.ApplyResources(this.status1, "status1");
             this.status1.Name = "status1";
             this.status1.Percent = 0D;
-            // 
-            // RTSPButton
-            // 
-            this.RTSPButton.ForeColor = System.Drawing.Color.Azure;
-            this.RTSPButton.Image = global::MissionPlanner.Properties.Resources.camera_icon;
-            this.RTSPButton.Name = "RTSPButton";
-            resources.ApplyResources(this.RTSPButton, "RTSPButton");
-            this.RTSPButton.Click += new System.EventHandler(this.RTSPButton_Click);
             // 
             // MainV2
             // 
