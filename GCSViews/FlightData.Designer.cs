@@ -240,6 +240,8 @@ namespace MissionPlanner.GCSViews
             this.scriptChecker = new System.Windows.Forms.Timer(this.components);
             this.Messagetabtimer = new System.Windows.Forms.Timer(this.components);
             this.bindingSourceStatusTab = new System.Windows.Forms.BindingSource(this.components);
+            this.RTSPStartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RTSPStopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.MainH)).BeginInit();
             this.MainH.Panel1.SuspendLayout();
             this.MainH.Panel2.SuspendLayout();
@@ -462,7 +464,9 @@ namespace MissionPlanner.GCSViews
             this.swapWithMapToolStripMenuItem,
             this.groundColorToolStripMenuItem,
             this.setBatteryCellCountToolStripMenuItem,
-            this.showIconsToolStripMenuItem});
+            this.showIconsToolStripMenuItem,
+            this.RTSPStartToolStripMenuItem,
+            this.RTSPStopToolStripMenuItem});
             this.contextMenuStripHud.Name = "contextMenuStrip2";
             resources.ApplyResources(this.contextMenuStripHud, "contextMenuStripHud");
             // 
@@ -2744,7 +2748,7 @@ namespace MissionPlanner.GCSViews
             this.windDir1.BackColor = System.Drawing.Color.Transparent;
             this.windDir1.DataBindings.Add(new System.Windows.Forms.Binding("Direction", this.bindingSource1, "wind_dir", true, System.Windows.Forms.DataSourceUpdateMode.Never));
             this.windDir1.DataBindings.Add(new System.Windows.Forms.Binding("Speed", this.bindingSource1, "wind_vel", true, System.Windows.Forms.DataSourceUpdateMode.Never));
-            this.windDir1.Direction = 180D;
+            this.windDir1.Direction = 360D;
             resources.ApplyResources(this.windDir1, "windDir1");
             this.windDir1.Name = "windDir1";
             this.windDir1.Speed = 0D;
@@ -2895,6 +2899,18 @@ namespace MissionPlanner.GCSViews
             // bindingSourceStatusTab
             // 
             this.bindingSourceStatusTab.DataSource = typeof(MissionPlanner.CurrentState);
+            // 
+            // RTSPStartToolStripMenuItem
+            // 
+            this.RTSPStartToolStripMenuItem.Name = "RTSPStartToolStripMenuItem";
+            resources.ApplyResources(this.RTSPStartToolStripMenuItem, "RTSPStartToolStripMenuItem");
+            this.RTSPStartToolStripMenuItem.Click += new System.EventHandler(this.RTSPStartToolStripMenuItem_Click);
+            // 
+            // RTSPStopToolStripMenuItem
+            // 
+            this.RTSPStopToolStripMenuItem.Name = "RTSPStopToolStripMenuItem";
+            resources.ApplyResources(this.RTSPStopToolStripMenuItem, "RTSPStopToolStripMenuItem");
+            this.RTSPStopToolStripMenuItem.Click += new System.EventHandler(this.RTSPStopToolStripMenuItem_Click);
             // 
             // FlightData
             // 
@@ -3210,5 +3226,7 @@ namespace MissionPlanner.GCSViews
         private ToolStripMenuItem gimbalVideoFullSizedToolStripMenuItem;
         private ToolStripMenuItem gimbalVideoMiniToolStripMenuItem;
         private ToolStripMenuItem gimbalVideoPopOutToolStripMenuItem;
+        private ToolStripMenuItem RTSPStartToolStripMenuItem;
+        private ToolStripMenuItem RTSPStopToolStripMenuItem;
     }
 }

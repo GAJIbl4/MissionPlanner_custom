@@ -108,6 +108,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Users\GAJIb\OneDrive\Documents\GitHub\RTSPSharpPlayer\RTSPPlayer.csproj" />
     <ProjectReference Include="ExtLibs\7zip\7zip.csproj" />
     <ProjectReference Include="ExtLibs\alglibnet\alglibnet.csproj" />
     <ProjectReference Include="ExtLibs\Antenna\MissionPlanner.Antenna.csproj" />

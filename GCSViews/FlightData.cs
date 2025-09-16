@@ -32,6 +32,7 @@ using ZedGraph;
 using LogAnalyzer = MissionPlanner.Utilities.LogAnalyzer;
 using TableLayoutPanelCellPosition = System.Windows.Forms.TableLayoutPanelCellPosition;
 using UnauthorizedAccessException = System.UnauthorizedAccessException;
+using RTSPPlayer;
 
 // written by michael oborne
 
@@ -6690,6 +6691,57 @@ namespace MissionPlanner.GCSViews
                     menuItem.Visible = allowedItems.Contains(menuItem.Name);
                 }
             }
+        }
+
+        private static Image CreateTestImage(int w, int h)
+        {
+            Bitmap bmp = new Bitmap(w, h);
+            using (Graphics g = Graphics.FromImage(bmp))
+            {
+                g.Clear(Color.Red);
+                using (var font = new Font("Arial", 32, FontStyle.Bold))
+                {
+                    g.DrawString("TEST IMAGE", font, Brushes.White, new PointF(20, 20));
+                }
+            }
+            return bmp;
+        }
+
+        private void ShowTestImage()
+        {
+            var test = CreateTestImage(hud1.Width, hud1.Height);
+            var old = hud1.bgimage;
+            hud1.bgimage = test;   // подменяем фон
+            old?.Dispose();        // не забываем освобождать предыдущий
+        }
+
+        RTSPdecoder rtsp = new RTSPdecoder();
+
+        private void Rtsp_FrameReady(Image img)
+        {
+            if (hud1.InvokeRequired)
+            {
+                // перебросить в UI поток
+                hud1.BeginInvoke(new Action(() => Rtsp_FrameReady(img)));
+                return;
+            }
+
+            // обновляем фон HUD
+            var old = hud1.bgimage;
+            hud1.bgimage = img;
+            old?.Dispose();
+        }
+
+        private void RTSPStartToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rtsp.FrameReady += Rtsp_FrameReady;
+            rtsp.StartDecode();
+        }
+
+        private void RTSPStopToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rtsp.FrameReady -= Rtsp_FrameReady;
+            rtsp.StopDecode();
         }
     }
 }
