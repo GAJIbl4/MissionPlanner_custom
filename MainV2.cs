@@ -578,6 +578,7 @@ namespace MissionPlanner
         /// ie configuration gets reloaded on every click
         /// </summary>
         public GCSViews.FlightData FlightData;
+        public GCSViews.RTSPSettings RTSPSettings;
 
         public GCSViews.FlightPlanner FlightPlanner;
         GCSViews.SITL Simulation;
@@ -3166,6 +3167,7 @@ namespace MissionPlanner
             MyView.AddScreen(new MainSwitcher.Screen("Help", typeof(GCSViews.Help), false));
             MyView.AddScreen(new MainSwitcher.Screen("CustomParams", typeof(GCSViews.CustomParams), false));
             MyView.AddScreen(new MainSwitcher.Screen("VisibilityParams", typeof(GCSViews.VisibilityParams), false));
+            MyView.AddScreen(new MainSwitcher.Screen("RTSPSettings", typeof(GCSViews.RTSPSettings), false));
 
             try
             {
@@ -4863,8 +4865,7 @@ namespace MissionPlanner
 
         private void RTSPButton_Click(object sender, EventArgs e)
         {
-            var form = new RTSPStreamer();
-            form.Show();
+            MyView.ShowScreen("RTSPSettings");
         }
     }
 }
