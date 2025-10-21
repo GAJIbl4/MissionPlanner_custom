@@ -37,10 +37,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.rtspPlayerControl1 = new RTSPPlayer.RtspPlayerControl();
             this.myLabel1 = new MissionPlanner.Controls.MyLabel();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.rtspPlayerControl1 = new RTSPPlayer.RtspPlayerControl();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -142,8 +142,32 @@
             this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox3.Location = new System.Drawing.Point(62, 81);
             this.textBox3.Name = "textBox3";
+            this.textBox3.PasswordChar = '*';
             this.textBox3.Size = new System.Drawing.Size(133, 20);
             this.textBox3.TabIndex = 7;
+            // 
+            // myLabel1
+            // 
+            this.myLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.myLabel1.Location = new System.Drawing.Point(62, 107);
+            this.myLabel1.Name = "myLabel1";
+            this.myLabel1.resize = false;
+            this.myLabel1.Size = new System.Drawing.Size(133, 23);
+            this.myLabel1.TabIndex = 8;
+            this.myLabel1.Text = "Запомнить настройки";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkBox1.Location = new System.Drawing.Point(3, 107);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(53, 23);
+            this.checkBox1.TabIndex = 9;
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel2
             // 
@@ -167,27 +191,6 @@
             this.rtspPlayerControl1.Name = "rtspPlayerControl1";
             this.rtspPlayerControl1.Size = new System.Drawing.Size(813, 571);
             this.rtspPlayerControl1.TabIndex = 1;
-            // 
-            // myLabel1
-            // 
-            this.myLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.myLabel1.Location = new System.Drawing.Point(62, 107);
-            this.myLabel1.Name = "myLabel1";
-            this.myLabel1.resize = false;
-            this.myLabel1.Size = new System.Drawing.Size(133, 23);
-            this.myLabel1.TabIndex = 8;
-            this.myLabel1.Text = "Запомнить настройки";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkBox1.Location = new System.Drawing.Point(3, 107);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(53, 23);
-            this.checkBox1.TabIndex = 9;
-            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // RTSPSettings
             // 
