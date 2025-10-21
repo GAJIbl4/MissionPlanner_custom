@@ -27,13 +27,30 @@ namespace MissionPlanner.GCSViews
         public void Activate()
         {
             log.Info("RTSP Settings activated");
-            this.loadSettings();
-            // Add activation logic here
+            try
+            {
+                this.loadSettings();
+            }
+            catch (Exception ex) 
+            {
+                log.Error($"RSTP Activate error: {ex.Message}");
+            }
         }
         public void Deactivate()
         {
             log.Info("RTSP Settings deactivated");
-            // Add deactivation logic here
+            try
+            {
+                if (this.checkBox1.Checked)
+                {
+                    this.saveSettings();
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error($"RTSP Settings deactivate error: {ex.Message}");
+            }
+            
         }
 
         private void loadSettings()
@@ -43,39 +60,85 @@ namespace MissionPlanner.GCSViews
                 if (!Settings.Instance.ContainsKey("RTSPSettings"))
             {
                 log.Info("RTSP Settings not found, creating default one");
-                Settings.Instance["RTSP_URL"] = "192.168.1.33";
+                Settings.Instance["RTSP_IP"] = "37.39.126.110";
                 Settings.Instance["RTSP_Port"] = "554";
-                Settings.Instance["RTSP_login"] = "admin";
+                Settings.Instance["RTSP_Login"] = "admin";
                 Settings.Instance["RTSP_Password"] = "admin";
                 Settings.Instance.Save();
             }
 
-            this.IPTextBox.Text = Settings.Instance["RTSP_URL"];
+            this.IPTextBox.Text = Settings.Instance["RTSP_IP"];
             this.textBox1.Text = Settings.Instance["RTSP_Port"];
-            this.textBox2.Text = Settings.Instance["RTSP_login"];
+            this.textBox2.Text = Settings.Instance["RTSP_Login"];
             this.textBox3.Text = Settings.Instance["RTSP_Password"]; }
             catch (Exception ex) {
                 log.Error("RTSP Settings Error: ", ex);
             }
-
         }
 
         private void saveSettings()
         {
-            if (this.checkBox1.Checked)
+            try
             {
-                log.Info("RTSP Settings not found, creating default one");
-                Settings.Instance["RTSP_URL"] = this.IPTextBox.Text;
-                Settings.Instance["RTSP_Port"] = this.textBox1.Text;
-                Settings.Instance["RTSP_login"] = this.textBox2.Text;
-                Settings.Instance["RTSP_Password"] = this.textBox3.Text;
-                Settings.Instance.Save();
+                if (this.checkBox1.Checked)
+                {
+                    log.Info("RTSP Settings not found, creating default one");
+                    Settings.Instance["RTSP_IP"] = this.IPTextBox.Text;
+                    Settings.Instance["RTSP_Port"] = this.textBox1.Text;
+                    Settings.Instance["RTSP_Login"] = this.textBox2.Text;
+                    Settings.Instance["RTSP_Password"] = this.textBox3.Text;
+                    Settings.Instance.Save();
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.Message);
             }
         }
 
-        private void rtspPlayerControl1_Load(object sender, EventArgs e)
+        private void PlayBtn_Click(object sender, EventArgs e)
         {
+            try 
+            {  
+                string rtspUrl = $"rtsp://{this.textBox2.Text}:{this.textBox3.Text}@{this.IPTextBox.Text}:{this.textBox1.Text}/Streaming/channels/1";
+                this.rtspPlayerControl1.Play(rtspUrl);
+                if (this.checkBox1.Checked)
+                    {
+                        this.saveSettings();
+                    } 
+            }
+            catch (Exception ex)
+            {
+                log.Error($"RTSP Play ERROR: {ex.Message}");
+            }
+        }
 
+        private void StopBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.rtspPlayerControl1.Stop();
+            }
+            catch (Exception ex)
+            {
+                log.Error($"RTSP Stop ERROR: {ex.Message}");
+            }
+        }
+
+        private void ApplyBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int planeNumber = Decimal.ToInt32(this.planeNumberEdit.Value);
+                if (planeNumber >= 10000 && planeNumber <= 99999)
+                {
+                    this.IPTextBox.Text = $"39.37.{planeNumber-9984}.110";
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error(ex.Message);
+            }
         }
     }
 }
