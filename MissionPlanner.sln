@@ -224,7 +224,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MockDroneID", "ExtLibs\Mock
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TerrainMakerPlugin", "Plugins\TerrainMakerPlugin\TerrainMakerPlugin.csproj", "{DDD2FEA8-801E-463B-8913-9CCCDA2D9429}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTSPPlayer", "..\..\Users\GAJIb\OneDrive\Documents\GitHub\RTSPSharpPlayer\RTSPPlayer.csproj", "{D3B3B805-EC88-44E8-885D-9004803BA669}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RTSPPlayer", "ExtLibs\RTSPSharpPlayer\RTSPPlayer.csproj", "{D3B3B805-EC88-44E8-885D-9004803BA669}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

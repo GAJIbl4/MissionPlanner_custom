@@ -11,6 +11,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Xml;
 using System.Net;
+using MissionPlanner.Controls;
 
 namespace MissionPlanner.GCSViews.ConfigurationView
 {
