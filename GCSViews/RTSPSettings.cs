@@ -72,5 +72,10 @@ namespace MissionPlanner.GCSViews
                 Settings.Instance.Save();
             }
         }
+
+        private void rtspPlayerControl1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

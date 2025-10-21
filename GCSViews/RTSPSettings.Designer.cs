@@ -191,6 +191,7 @@
             this.rtspPlayerControl1.Name = "rtspPlayerControl1";
             this.rtspPlayerControl1.Size = new System.Drawing.Size(813, 571);
             this.rtspPlayerControl1.TabIndex = 1;
+            this.rtspPlayerControl1.Load += new System.EventHandler(this.rtspPlayerControl1_Load);
             // 
             // RTSPSettings
             // 
