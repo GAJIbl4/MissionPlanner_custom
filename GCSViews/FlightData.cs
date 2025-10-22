@@ -4087,8 +4087,8 @@ namespace MissionPlanner.GCSViews
                                 return true;
                             });
 
-                            //draw ADSB
-                            updateMarkersAsNeeded<adsb.PointLatLngAltHdg, GMapMarkerADSBPlane>(adsbitems, adsbais,
+                       
+                        updateMarkersAsNeeded<adsb.PointLatLngAltHdg, GMapMarkerADSBPlane>(adsbitems, adsbais,
                                 (plla) => { return plla.Tag; },
                                 (marker) => { return ((adsb.PointLatLngAltHdg) marker?.Tag)?.Tag; },
                                 (pllac) =>

@@ -49,11 +49,13 @@ namespace MissionPlanner
             this.MenuConfigTune = new System.Windows.Forms.ToolStripButton();
             this.MenuSimulation = new System.Windows.Forms.ToolStripButton();
             this.MenuHelp = new System.Windows.Forms.ToolStripButton();
+            this.MenuConnect = new System.Windows.Forms.ToolStripButton();
             this.MenuCustomSettingsButton = new System.Windows.Forms.ToolStripButton();
             this.RTSPButton = new System.Windows.Forms.ToolStripButton();
-            this.MenuConnect = new System.Windows.Forms.ToolStripButton();
-            this.toolStripConnectionControl = new MissionPlanner.Controls.ToolStripConnectionControl();
+            this.AhrsGpsSwitch = new System.Windows.Forms.ToolStripButton();
+            this.ZenitItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuArduPilot = new System.Windows.Forms.ToolStripButton();
+            this.toolStripConnectionControl = new MissionPlanner.Controls.ToolStripConnectionControl();
             this.menu = new MissionPlanner.Controls.MyButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.status1 = new MissionPlanner.Controls.Status();
@@ -75,11 +77,13 @@ namespace MissionPlanner
             this.MenuConfigTune,
             this.MenuSimulation,
             this.MenuHelp,
+            this.MenuConnect,
             this.MenuCustomSettingsButton,
             this.RTSPButton,
-            this.MenuConnect,
-            this.toolStripConnectionControl,
-            this.MenuArduPilot});
+            this.AhrsGpsSwitch,
+            this.ZenitItem,
+            this.MenuArduPilot,
+            this.toolStripConnectionControl});
             this.MainMenu.Name = "MainMenu";
             this.MainMenu.ShowItemToolTips = true;
             this.MainMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MainMenu_ItemClicked);
@@ -87,6 +91,7 @@ namespace MissionPlanner
             // 
             // CTX_mainmenu
             // 
+            this.CTX_mainmenu.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.CTX_mainmenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.autoHideToolStripMenuItem,
             this.fullScreenToolStripMenuItem,
@@ -177,6 +182,15 @@ namespace MissionPlanner
             this.MenuHelp.Name = "MenuHelp";
             this.MenuHelp.Click += new System.EventHandler(this.MenuHelp_Click);
             // 
+            // MenuConnect
+            // 
+            this.MenuConnect.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.MenuConnect.ForeColor = System.Drawing.SystemColors.ControlLight;
+            resources.ApplyResources(this.MenuConnect, "MenuConnect");
+            this.MenuConnect.Margin = new System.Windows.Forms.Padding(0);
+            this.MenuConnect.Name = "MenuConnect";
+            this.MenuConnect.Click += new System.EventHandler(this.MenuConnect_Click);
+            // 
             // MenuCustomSettingsButton
             // 
             this.MenuCustomSettingsButton.ForeColor = System.Drawing.Color.Azure;
@@ -193,23 +207,20 @@ namespace MissionPlanner
             resources.ApplyResources(this.RTSPButton, "RTSPButton");
             this.RTSPButton.Click += new System.EventHandler(this.RTSPButton_Click);
             // 
-            // MenuConnect
+            // AhrsGpsSwitch
             // 
-            this.MenuConnect.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.MenuConnect.ForeColor = System.Drawing.SystemColors.ControlLight;
-            resources.ApplyResources(this.MenuConnect, "MenuConnect");
-            this.MenuConnect.Margin = new System.Windows.Forms.Padding(0);
-            this.MenuConnect.Name = "MenuConnect";
-            this.MenuConnect.Click += new System.EventHandler(this.MenuConnect_Click);
+            this.AhrsGpsSwitch.ForeColor = System.Drawing.Color.Azure;
+            this.AhrsGpsSwitch.Image = global::MissionPlanner.Properties.Resources.planeicon;
+            this.AhrsGpsSwitch.Name = "AhrsGpsSwitch";
+            resources.ApplyResources(this.AhrsGpsSwitch, "AhrsGpsSwitch");
+            this.AhrsGpsSwitch.Click += new System.EventHandler(this.AhrsGpsSwitch_Click);
             // 
-            // toolStripConnectionControl
+            // ZenitItem
             // 
-            this.toolStripConnectionControl.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            resources.ApplyResources(this.toolStripConnectionControl, "toolStripConnectionControl");
-            this.toolStripConnectionControl.ForeColor = System.Drawing.Color.Black;
-            this.toolStripConnectionControl.Margin = new System.Windows.Forms.Padding(0);
-            this.toolStripConnectionControl.Name = "toolStripConnectionControl";
-            this.toolStripConnectionControl.MouseLeave += new System.EventHandler(this.MainMenu_MouseLeave);
+            resources.ApplyResources(this.ZenitItem, "ZenitItem");
+            this.ZenitItem.BackColor = System.Drawing.Color.Aqua;
+            this.ZenitItem.ForeColor = System.Drawing.Color.Red;
+            this.ZenitItem.Name = "ZenitItem";
             // 
             // MenuArduPilot
             // 
@@ -222,6 +233,15 @@ namespace MissionPlanner
             this.MenuArduPilot.Margin = new System.Windows.Forms.Padding(0);
             this.MenuArduPilot.Name = "MenuArduPilot";
             this.MenuArduPilot.Click += new System.EventHandler(this.MenuArduPilot_Click);
+            // 
+            // toolStripConnectionControl
+            // 
+            this.toolStripConnectionControl.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            resources.ApplyResources(this.toolStripConnectionControl, "toolStripConnectionControl");
+            this.toolStripConnectionControl.ForeColor = System.Drawing.Color.Black;
+            this.toolStripConnectionControl.Margin = new System.Windows.Forms.Padding(0);
+            this.toolStripConnectionControl.Name = "toolStripConnectionControl";
+            this.toolStripConnectionControl.MouseLeave += new System.EventHandler(this.MainMenu_MouseLeave);
             // 
             // menu
             // 
@@ -287,5 +307,7 @@ namespace MissionPlanner
         public Controls.Status status1;
         public System.Windows.Forms.ToolStripButton MenuCustomSettingsButton;
         public System.Windows.Forms.ToolStripButton RTSPButton;
+        public System.Windows.Forms.ToolStripButton AhrsGpsSwitch;
+        private System.Windows.Forms.ToolStripMenuItem ZenitItem;
     }
 }

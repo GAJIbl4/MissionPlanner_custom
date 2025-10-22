@@ -24,15 +24,29 @@ namespace MissionPlanner
         public static GMapMarker getMAVMarker(MAVState MAV, GMapOverlay overlay = null)
         {
             PointLatLng portlocation = MAV.cs.Location;
-
-            if(overlay!= null)
+            if (Settings.Instance["AHRS/GPS_Toggle"] == "AHRS")
             {
-                var existing = overlay.Markers.Where((a)=>a.Tag == MAV).ToArray();                
+                portlocation = MAV.cs.Location;
+
+            }
+            else if (Settings.Instance["AHRS/GPS_Toggle"] == "GPS")
+            {
+                portlocation = MAV.cs.TrackerLocation; ;
+            }
+            else
+            {
+                portlocation = MAV.cs.Location;
+            }
+
+            if (overlay != null)
+            {
+                var existing = overlay.Markers.Where((a) => a.Tag == MAV).ToArray();
                 if (existing.Count() > 1)
                 {
-                    existing.Skip(1).ToArray().ForEach((a) => { overlay.Markers.Remove(a);});
+                    existing.Skip(1).ToArray().ForEach((a) => { overlay.Markers.Remove(a); });
                 }
-                if(existing.Count() > 0) {
+                if (existing.Count() > 0)
+                {
                     var item = existing.First();
                     if (item is GMapMarkerPlane)
                     {
@@ -70,7 +84,7 @@ namespace MissionPlanner
                     }
                     else
                     {
-                        existing.ForEach((a)=> overlay.Markers.Remove(a));
+                        existing.ForEach((a) => overlay.Markers.Remove(a));
                     }
                 }
             }
