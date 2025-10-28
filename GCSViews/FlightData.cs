@@ -6735,6 +6735,7 @@ namespace MissionPlanner.GCSViews
         private void RTSPStartToolStripMenuItem_Click(object sender, EventArgs e)
         {
             rtsp.RtspUrl = $"rtsp://{Settings.Instance["RTSP_Login"]}:{Settings.Instance["RTSP_Password"]}@{Settings.Instance["RTSP_IP"]}/Streaming/channels/1";
+            DecoderSettingsManager.LoadDecoderSettings();
             rtsp.FrameReady += Rtsp_FrameReady;
             rtsp.StartDecode();
         }
@@ -6743,6 +6744,57 @@ namespace MissionPlanner.GCSViews
         {
             rtsp.FrameReady -= Rtsp_FrameReady;
             rtsp.StopDecode();
+        }
+
+        private void BUT_engineStart_Click(object sender, EventArgs e)
+        {
+            if (
+                CustomMessageBox.Show("Are you sure you want to do Engine Start?", "Action",
+                    MessageBoxButtons.YesNo) == (int)DialogResult.Yes)
+            {
+                try
+                {
+                    ((Control)sender).Enabled = false;
+
+                    if (CMB_action.Text == actions.Engine_Start.ToString())
+                    {
+                        MainV2.comPort.doEngineControl((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, true);
+                        ((Control)sender).Enabled = true;
+                        return;
+                    }
+                }
+                catch
+                {
+                    CustomMessageBox.Show(Strings.CommandFailed, Strings.ERROR);
+                }
+
+                ((Control)sender).Enabled = true;
+            }
+        }
+
+        private void BUT_engineStop_Click(object sender, EventArgs e)
+        {
+            if (
+                CustomMessageBox.Show("Are you sure you want to do Engine Start?", "Action",
+                    MessageBoxButtons.YesNo) == (int)DialogResult.Yes)
+            {
+                try
+                {
+                    ((Control)sender).Enabled = false;
+                    if (CMB_action.Text == actions.Engine_Stop.ToString())
+                    {
+                        MainV2.comPort.doEngineControl((byte)MainV2.comPort.sysidcurrent, (byte)MainV2.comPort.compidcurrent, false);
+                        ((Control)sender).Enabled = true;
+                        return;
+                    }
+                }
+                catch
+                {
+                    CustomMessageBox.Show(Strings.CommandFailed, Strings.ERROR);
+                }
+
+                ((Control)sender).Enabled = true;
+            }
         }
     }
 }

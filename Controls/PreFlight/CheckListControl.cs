@@ -258,6 +258,8 @@ namespace MissionPlanner.Controls.PreFlight
 
         public void Controls_Resize(object sender, EventArgs e)
         {
+            if (groupboxes.Count < 1) return;
+
             //initialize controls x and y
             int gbsX = 0;
             int gbsY = 0;

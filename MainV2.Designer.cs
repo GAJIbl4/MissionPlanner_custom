@@ -54,8 +54,8 @@ namespace MissionPlanner
             this.RTSPButton = new System.Windows.Forms.ToolStripButton();
             this.AhrsGpsSwitch = new System.Windows.Forms.ToolStripButton();
             this.ZenitItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuArduPilot = new System.Windows.Forms.ToolStripButton();
             this.toolStripConnectionControl = new MissionPlanner.Controls.ToolStripConnectionControl();
+            this.MenuArduPilot = new System.Windows.Forms.ToolStripButton();
             this.menu = new MissionPlanner.Controls.MyButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.status1 = new MissionPlanner.Controls.Status();
@@ -82,8 +82,8 @@ namespace MissionPlanner
             this.RTSPButton,
             this.AhrsGpsSwitch,
             this.ZenitItem,
-            this.MenuArduPilot,
-            this.toolStripConnectionControl});
+            this.toolStripConnectionControl,
+            this.MenuArduPilot});
             this.MainMenu.Name = "MainMenu";
             this.MainMenu.ShowItemToolTips = true;
             this.MainMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.MainMenu_ItemClicked);
@@ -218,9 +218,19 @@ namespace MissionPlanner
             // ZenitItem
             // 
             resources.ApplyResources(this.ZenitItem, "ZenitItem");
-            this.ZenitItem.BackColor = System.Drawing.Color.Aqua;
+            this.ZenitItem.BackColor = System.Drawing.Color.Blue;
+            this.ZenitItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.ZenitItem.ForeColor = System.Drawing.Color.Red;
             this.ZenitItem.Name = "ZenitItem";
+            // 
+            // toolStripConnectionControl
+            // 
+            this.toolStripConnectionControl.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            resources.ApplyResources(this.toolStripConnectionControl, "toolStripConnectionControl");
+            this.toolStripConnectionControl.ForeColor = System.Drawing.Color.Black;
+            this.toolStripConnectionControl.Margin = new System.Windows.Forms.Padding(0);
+            this.toolStripConnectionControl.Name = "toolStripConnectionControl";
+            this.toolStripConnectionControl.MouseLeave += new System.EventHandler(this.MainMenu_MouseLeave);
             // 
             // MenuArduPilot
             // 
@@ -233,15 +243,6 @@ namespace MissionPlanner
             this.MenuArduPilot.Margin = new System.Windows.Forms.Padding(0);
             this.MenuArduPilot.Name = "MenuArduPilot";
             this.MenuArduPilot.Click += new System.EventHandler(this.MenuArduPilot_Click);
-            // 
-            // toolStripConnectionControl
-            // 
-            this.toolStripConnectionControl.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            resources.ApplyResources(this.toolStripConnectionControl, "toolStripConnectionControl");
-            this.toolStripConnectionControl.ForeColor = System.Drawing.Color.Black;
-            this.toolStripConnectionControl.Margin = new System.Windows.Forms.Padding(0);
-            this.toolStripConnectionControl.Name = "toolStripConnectionControl";
-            this.toolStripConnectionControl.MouseLeave += new System.EventHandler(this.MainMenu_MouseLeave);
             // 
             // menu
             // 

@@ -4903,7 +4903,7 @@ namespace MissionPlanner
                 return;
 
             float ch16_value = MainV2.comPort.MAV.cs.ch16out;
-
+            log.Info($"CH16 Output: {ch16_value}");
             // Например, включено = зелёный, выключено = красный
             if (ch16_value == 1999 || ch16_value == 2000)
                 ZenitItem.BackColor = Color.Blue;

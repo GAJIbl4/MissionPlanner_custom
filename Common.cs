@@ -33,10 +33,6 @@ namespace MissionPlanner
             {
                 portlocation = MAV.cs.TrackerLocation; ;
             }
-            else
-            {
-                portlocation = MAV.cs.Location;
-            }
 
             if (overlay != null)
             {

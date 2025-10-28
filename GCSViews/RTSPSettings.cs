@@ -19,6 +19,7 @@ namespace MissionPlanner.GCSViews
     {
 
         internal static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+        private DecoderSettings _settings;
 
         public RTSPSettings()
         {
@@ -32,10 +33,10 @@ namespace MissionPlanner.GCSViews
             try
             {
                 this.loadSettings();
-                DecoderSettings settings = new DecoderSettings();
-                DecoderSettingsUIBuilder.BuildDecoderSettingsUI(settings, this.DecoderSettingsTable);
+                _settings = DecoderSettingsManager.LoadDecoderSettings();
+                DecoderSettingsUIBuilder.BuildDecoderSettingsUI(_settings, this.DecoderSettingsTable);
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 log.Error($"RSTP Activate error: {ex.Message}");
             }
@@ -54,7 +55,7 @@ namespace MissionPlanner.GCSViews
             {
                 log.Error($"RTSP Settings deactivate error: {ex.Message}");
             }
-            
+
         }
 
         private void loadSettings()
@@ -74,9 +75,9 @@ namespace MissionPlanner.GCSViews
                 this.IPTextBox.Text = Settings.Instance["RTSP_IP"];
                 this.textBox1.Text = Settings.Instance["RTSP_Port"];
                 this.textBox2.Text = Settings.Instance["RTSP_Login"];
-                this.textBox3.Text = Settings.Instance["RTSP_Password"]; 
+                this.textBox3.Text = Settings.Instance["RTSP_Password"];
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 log.Error("RTSP Settings Error: ", ex);
             }
@@ -94,6 +95,8 @@ namespace MissionPlanner.GCSViews
                     Settings.Instance["RTSP_Login"] = this.textBox2.Text;
                     Settings.Instance["RTSP_Password"] = this.textBox3.Text;
                     Settings.Instance.Save();
+
+                    DecoderSettingsManager.SaveDecoderSettings(_settings);
                 }
             }
             catch (Exception ex)
@@ -104,15 +107,15 @@ namespace MissionPlanner.GCSViews
 
         private void PlayBtn_Click(object sender, EventArgs e)
         {
-            try 
-            {  
+            try
+            {
                 string rtspUrl = $"rtsp://{this.textBox2.Text}:{this.textBox3.Text}@{this.IPTextBox.Text}:{this.textBox1.Text}/Streaming/channels/1";
                 this.rtspPlayerControl1.Play(rtspUrl);
                 if (this.checkBox1.Checked)
-                { 
+                {
                     log.Info("Saving RTSP Settings");
                     this.saveSettings();
-                } 
+                }
             }
             catch (Exception ex)
             {
@@ -139,13 +142,18 @@ namespace MissionPlanner.GCSViews
                 int planeNumber = Decimal.ToInt32(this.planeNumberEdit.Value);
                 if (planeNumber >= 10000 && planeNumber <= 99999)
                 {
-                    this.IPTextBox.Text = $"39.37.{planeNumber-9984}.110";
+                    this.IPTextBox.Text = $"39.37.{planeNumber - 9984}.110";
                 }
             }
             catch (Exception ex)
             {
                 log.Error(ex.Message);
             }
+        }
+
+        private void myButton2_Click(object sender, EventArgs e)
+        {
+            DecoderSettingsManager.SaveDecoderSettings(_settings);
         }
     }
 
@@ -250,3 +258,90 @@ namespace MissionPlanner.GCSViews
         }
     }
 }
+
+public static class DecoderSettingsManager
+{
+    internal static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+
+    /// <summary>
+    /// Загружает настройки декодера из Settings.Instance
+    /// </summary>
+    public static DecoderSettings LoadDecoderSettings()
+    {
+        var s = new DecoderSettings();
+        var props = typeof(DecoderSettings).GetProperties();
+
+        foreach (var prop in props)
+        {
+            string key = "Decoder_" + prop.Name;
+
+            try
+            {
+                if (Settings.Instance.ContainsKey(key))
+                {
+                    string val = Settings.Instance[key];
+                    object parsed = null;
+
+                    if (prop.PropertyType == typeof(bool))
+                        parsed = bool.Parse(val);
+                    else if (prop.PropertyType == typeof(int))
+                        parsed = int.Parse(val);
+                    else if (prop.PropertyType == typeof(double))
+                        parsed = double.Parse(val, System.Globalization.CultureInfo.InvariantCulture);
+                    else if (prop.PropertyType == typeof(string))
+                        parsed = val;
+
+                    if (parsed != null)
+                        prop.SetValue(s, parsed);
+                }
+                else
+                {
+                    // Если параметра нет — добавить по умолчанию
+                    Settings.Instance[key] = prop.GetValue(s)?.ToString() ?? "";
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Warn($"Failed to load setting {key}: {ex.Message}");
+            }
+        }
+
+        // Сохраняем, если чего-то не хватало
+        Settings.Instance.Save();
+        log.Info("Decoder settings loaded.");
+        return s;
+    }
+
+    /// <summary>
+    /// Сохраняет настройки декодера в Settings.Instance
+    /// </summary>
+    public static void SaveDecoderSettings(DecoderSettings settings)
+    {
+        var props = typeof(DecoderSettings).GetProperties();
+
+        foreach (var prop in props)
+        {
+            string key = "Decoder_" + prop.Name;
+            try
+            {
+                object value = prop.GetValue(settings);
+                if (value != null)
+                {
+                    string stringValue = (value is double d)
+                        ? d.ToString(System.Globalization.CultureInfo.InvariantCulture)
+                        : value.ToString();
+
+                    Settings.Instance[key] = stringValue;
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Warn($"Failed to save setting {key}: {ex.Message}");
+            }
+        }
+
+        Settings.Instance.Save();
+        log.Info("Decoder settings saved.");
+    }
+}
+
