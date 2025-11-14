@@ -4890,10 +4890,13 @@ namespace MissionPlanner
             {
                 AhrsGpsSwitch.Text = "GPS";
                 Settings.Instance["AHRS/GPS_Toggle"] = "GPS";
+                Settings.Instance.Save();
             }
             else
             {
                 AhrsGpsSwitch.Text = "AHRS";
+                Settings.Instance["AHRS/GPS_Toggle"] = "AHRS";
+                Settings.Instance.Save();
             }
         }
 

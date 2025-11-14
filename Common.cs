@@ -24,15 +24,6 @@ namespace MissionPlanner
         public static GMapMarker getMAVMarker(MAVState MAV, GMapOverlay overlay = null)
         {
             PointLatLng portlocation = MAV.cs.Location;
-            if (Settings.Instance["AHRS/GPS_Toggle"] == "AHRS")
-            {
-                portlocation = MAV.cs.Location;
-
-            }
-            else if (Settings.Instance["AHRS/GPS_Toggle"] == "GPS")
-            {
-                portlocation = MAV.cs.TrackerLocation; ;
-            }
 
             if (overlay != null)
             {
@@ -89,7 +80,7 @@ namespace MissionPlanner
             {
                 return new GMapMarkerPlane(
                     MAV.sysid - 1,
-                    portlocation,
+                    MAV.cs.ActiveLocation,
                     MAV.cs.yaw,
                     MAV.cs.groundcourse,
                     MAV.cs.nav_bearing,

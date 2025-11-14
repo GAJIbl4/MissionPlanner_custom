@@ -109,12 +109,15 @@ namespace MissionPlanner.GCSViews
         {
             try
             {
+                var newSettings = DecoderSettingsManager.LoadDecoderSettings();
+                this.rtspPlayerControl1.SetNewSettings(newSettings);
                 string rtspUrl = $"rtsp://{this.textBox2.Text}:{this.textBox3.Text}@{this.IPTextBox.Text}:{this.textBox1.Text}/Streaming/channels/1";
                 this.rtspPlayerControl1.Play(rtspUrl);
                 if (this.checkBox1.Checked)
                 {
                     log.Info("Saving RTSP Settings");
                     this.saveSettings();
+                    DecoderSettingsManager.SaveDecoderSettings(newSettings);
                 }
             }
             catch (Exception ex)

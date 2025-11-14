@@ -6735,7 +6735,8 @@ namespace MissionPlanner.GCSViews
         private void RTSPStartToolStripMenuItem_Click(object sender, EventArgs e)
         {
             rtsp.RtspUrl = $"rtsp://{Settings.Instance["RTSP_Login"]}:{Settings.Instance["RTSP_Password"]}@{Settings.Instance["RTSP_IP"]}/Streaming/channels/1";
-            DecoderSettingsManager.LoadDecoderSettings();
+            var decoderSettings = DecoderSettingsManager.LoadDecoderSettings();
+            rtsp.SetNewSettings(decoderSettings);
             rtsp.FrameReady += Rtsp_FrameReady;
             rtsp.StartDecode();
         }

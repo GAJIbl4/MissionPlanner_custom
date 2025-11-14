@@ -53,9 +53,7 @@ namespace MissionPlanner.Maps
         float target = -1;
         int which = 0;
 
-        public GMapMarkerPlane(int which, PointLatLng p, float heading, float cog, float nav_bearing, float target,
-            float radius)
-            : base(p)
+        public GMapMarkerPlane(int which, PointLatLng p, float heading, float cog, float nav_bearing, float target, float radius) : base(p)
         {
             this.heading = heading;
             this.cog = cog;
