@@ -721,8 +721,6 @@ namespace MissionPlanner
             ThemeManager.thmColor
                 .SetTheme(); //Set the colors, this need to handle the case when not all colors are defined in the theme file
 
-
-
             if (Settings.Instance["theme"] == null)
             {
                 if (File.Exists($"{running_directory}custom.mpsystheme"))
@@ -4902,20 +4900,60 @@ namespace MissionPlanner
 
         private void UpdateMenuIconColor()
         {
+            string displayText = "ZENIT";
+            float ch16_value = -1;
+            // Получаем значение канала 16
             if (!MainV2.comPort.MAV.param.ContainsKey("CH16_OUT"))
-                return;
+            {
+                ch16_value = MainV2.comPort.MAV.cs.ch16out;
+            }
 
-            float ch16_value = MainV2.comPort.MAV.cs.ch16out;
-            log.Info($"CH16 Output: {ch16_value}");
-            // Например, включено = зелёный, выключено = красный
+            // Настраиваем цвет фона и текста в зависимости от значения
+            Color backColor;
+            Color textColor = Color.Red; // текст всегда красный
+
             if (ch16_value == 1999 || ch16_value == 2000)
-                ZenitItem.BackColor = Color.Blue;
+            {
+                backColor = Color.Blue;
+                displayText = "ZENIT";
+            }
+            else if (ch16_value == 999 || ch16_value == 700)
+            {
+                backColor = SystemColors.Window; // выключено или особое значение
+                displayText = "ZENIT";
+            }
             else
-                ZenitItem.BackColor = Color.Black;
+            {
+                backColor = SystemColors.Window; // по умолчанию
+                displayText = $"{ch16_value}"; // показываем текущее значение канала
+            }
 
-            if (ch16_value != 999 && ch16_value != 1999 && ch16_value != 2000 && ch16_value != 700)
-                ZenitItem.Text = $"{ch16_value}";
+            // Размеры кнопки
+            var width = ZenitItem.Width;
+            var height = ZenitItem.Height;
+
+            // Шрифт: размер 16, жирный
+            using (Font font = new Font(SystemFonts.MenuFont.FontFamily, 16, FontStyle.Bold))
+            using (Bitmap bmp = new Bitmap(width, height))
+            using (Graphics g = Graphics.FromImage(bmp))
+            {
+                g.Clear(backColor);
+                TextRenderer.DrawText(
+                    g,
+                    displayText,
+                    font,
+                    new Rectangle(0, 0, bmp.Width, bmp.Height),
+                    textColor,
+                    TextFormatFlags.VerticalCenter | TextFormatFlags.HorizontalCenter
+                );
+
+                // Назначаем картинку кнопке
+                ZenitItem.Image = (Bitmap)bmp.Clone(); // клонируем, чтобы не было проблем с using
+            }
+
+            ZenitItem.ImageScaling = ToolStripItemImageScaling.None;
         }
+
 
     }
 }

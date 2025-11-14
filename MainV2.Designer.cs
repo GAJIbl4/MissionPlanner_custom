@@ -53,7 +53,7 @@ namespace MissionPlanner
             this.MenuCustomSettingsButton = new System.Windows.Forms.ToolStripButton();
             this.RTSPButton = new System.Windows.Forms.ToolStripButton();
             this.AhrsGpsSwitch = new System.Windows.Forms.ToolStripButton();
-            this.ZenitItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ZenitItem = new System.Windows.Forms.ToolStripButton();
             this.toolStripConnectionControl = new MissionPlanner.Controls.ToolStripConnectionControl();
             this.MenuArduPilot = new System.Windows.Forms.ToolStripButton();
             this.menu = new MissionPlanner.Controls.MyButton();
@@ -218,8 +218,8 @@ namespace MissionPlanner
             // ZenitItem
             // 
             resources.ApplyResources(this.ZenitItem, "ZenitItem");
-            this.ZenitItem.BackColor = System.Drawing.Color.Blue;
-            this.ZenitItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.ZenitItem.BackColor = System.Drawing.Color.Transparent;
+            this.ZenitItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.ZenitItem.ForeColor = System.Drawing.Color.Red;
             this.ZenitItem.Name = "ZenitItem";
             // 
@@ -309,6 +309,6 @@ namespace MissionPlanner
         public System.Windows.Forms.ToolStripButton MenuCustomSettingsButton;
         public System.Windows.Forms.ToolStripButton RTSPButton;
         public System.Windows.Forms.ToolStripButton AhrsGpsSwitch;
-        private System.Windows.Forms.ToolStripMenuItem ZenitItem;
+        public System.Windows.Forms.ToolStripButton ZenitItem;
     }
 }
