@@ -1630,20 +1630,23 @@ namespace MissionPlanner
         }
 
         [GroupText("Position")] public PointLatLngAlt Location => new PointLatLngAlt(lat, lng, altasl);
-        [GroupText("Position")] public PointLatLngAlt GPSLocation => new PointLatLngAlt(lat3, lng3, altasl);
+        //[GroupText("Position")] public PointLatLngAlt GPSLocation => new PointLatLngAlt(parent.parent.MAV.cs.lat3, parent.parent.MAV.cs.lng3, altasl);
         public PointLatLngAlt ActiveLocation
         {
             get
             {
-                if (Settings.Instance["AHRS/GPS_Toggle"] == "GPS")
-                {
-                    log.Info($"Location: {Location}, GPSLocation: {GPSLocation}");
-                    return GPSLocation;
-                }
-                else
-                {
-                    return Location;
-                }
+                //if (Settings.Instance["AHRS/GPS_Toggle"] == "GPS")
+                //{
+                //    // log.Info($"GPSLocation: {GPSLocation}, lat3: {lat3}, lng3: {lng3}, lat: {lat}, lng: {lng}");
+                //    return GPSLocation;
+                //}
+                //else
+                //{
+                //    // log.Info($"Location: {GPSLocation}, lat3: {lat3}, lng3: {lng3}, alt: {lat}, lng: {lng}");
+                //    return Location;
+                //}
+
+                return Location;
             }
         }
         [GroupText("Position")] public PointLatLngAlt TargetLocation { get; set; } = PointLatLngAlt.Zero;
@@ -3265,8 +3268,11 @@ namespace MissionPlanner
                             }
                             else
                             {
-                                lat = loc.lat / 10000000.0;
-                                lng = loc.lon / 10000000.0;
+                                if (Settings.Instance["AHRS/GPS_Toggle"] == "AHRS")
+                                {
+                                    lat = loc.lat / 10000000.0;
+                                    lng = loc.lon / 10000000.0;
+                                }
 
                                 altasl = loc.alt / 1000.0f;
 
@@ -3283,9 +3289,10 @@ namespace MissionPlanner
                             if (Settings.Instance["AHRS/GPS_Toggle"] == "GPS")
                             {
                                 gps_loc = mavLinkMessage.ToStructure<MAVLink.mavlink_gps_input_t>();
-                                parent.parent.MAV.cs.lat3 = gps_loc.lat / 10000000.0;
-                                parent.parent.MAV.cs.lng3 = gps_loc.lon / 10000000.0;
+                                parent.parent.MAV.cs.lat = gps_loc.lat / 10000000.0;
+                                parent.parent.MAV.cs.lng = gps_loc.lon / 10000000.0;
                             }
+                            
                         }
                         break;
                     case (uint)MAVLink.MAVLINK_MSG_ID.GPS_RAW_INT:

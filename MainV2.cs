@@ -4720,7 +4720,9 @@ namespace MissionPlanner
         { "MenuConnect", MenuConnect },
         { "MenuHelp", MenuHelp },
         { "MenuCustomSettingsButton", MenuCustomSettingsButton },
-        { "RTSPButton", RTSPButton }
+        { "RTSPButton", RTSPButton },
+        { "AhrsGpsSwitch", AhrsGpsSwitch },
+        { "ZenitItem", ZenitItem}
     };
 
             foreach (var item in menuItems)
