@@ -3278,10 +3278,14 @@ namespace MissionPlanner
 
                         break;
                     case (uint)MAVLink.MAVLINK_MSG_ID.GPS_INPUT:
+
                         {
-                            gps_loc = mavLinkMessage.ToStructure<MAVLink.mavlink_gps_input_t>();
-                            lat3 = gps_loc.lat / 10000000.0;
-                            lng3 = gps_loc.lon / 10000000.0;
+                            if (Settings.Instance["AHRS/GPS_Toggle"] == "GPS")
+                            {
+                                gps_loc = mavLinkMessage.ToStructure<MAVLink.mavlink_gps_input_t>();
+                                parent.parent.MAV.cs.lat3 = gps_loc.lat / 10000000.0;
+                                parent.parent.MAV.cs.lng3 = gps_loc.lon / 10000000.0;
+                            }
                         }
                         break;
                     case (uint)MAVLink.MAVLINK_MSG_ID.GPS_RAW_INT:
