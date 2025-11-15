@@ -630,6 +630,9 @@
   <data name="BUT_SendMSG.ToolTip" xml:space="preserve">
     <value>Send message to be saved in vehicle log</value>
   </data>
+  <data name="BUT_SendMSG.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;BUT_SendMSG.Name" xml:space="preserve">
     <value>BUT_SendMSG</value>
   </data>
@@ -662,6 +665,9 @@
   </data>
   <data name="BUT_abortland.ToolTip" xml:space="preserve">
     <value>Plane only</value>
+  </data>
+  <data name="BUT_abortland.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;BUT_abortland.Name" xml:space="preserve">
     <value>BUT_abortland</value>
@@ -699,11 +705,14 @@
   <data name="modifyandSetLoiterRad.TabIndex" type="System.Int32, mscorlib">
     <value>87</value>
   </data>
+  <data name="modifyandSetLoiterRad.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;modifyandSetLoiterRad.Name" xml:space="preserve">
     <value>modifyandSetLoiterRad</value>
   </data>
   <data name="&gt;&gt;modifyandSetLoiterRad.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;modifyandSetLoiterRad.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -822,6 +831,9 @@
   <data name="BUT_resumemis.Text" xml:space="preserve">
     <value>Resume Mission</value>
   </data>
+  <data name="BUT_resumemis.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;BUT_resumemis.Name" xml:space="preserve">
     <value>BUT_resumemis</value>
   </data>
@@ -858,11 +870,14 @@
   <data name="modifyandSetAlt.TabIndex" type="System.Int32, mscorlib">
     <value>80</value>
   </data>
+  <data name="modifyandSetAlt.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;modifyandSetAlt.Name" xml:space="preserve">
     <value>modifyandSetAlt</value>
   </data>
   <data name="&gt;&gt;modifyandSetAlt.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;modifyandSetAlt.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -894,11 +909,14 @@
   <data name="modifyandSetSpeed.TabIndex" type="System.Int32, mscorlib">
     <value>81</value>
   </data>
+  <data name="modifyandSetSpeed.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;modifyandSetSpeed.Name" xml:space="preserve">
     <value>modifyandSetSpeed</value>
   </data>
   <data name="&gt;&gt;modifyandSetSpeed.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.ModifyandSet, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;modifyandSetSpeed.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -989,6 +1007,9 @@
   </data>
   <data name="BUT_mountmode.ToolTip" xml:space="preserve">
     <value>Changes to the Mode on the left</value>
+  </data>
+  <data name="BUT_mountmode.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;BUT_mountmode.Name" xml:space="preserve">
     <value>BUT_mountmode</value>
@@ -1089,6 +1110,9 @@
   <data name="BUT_Homealt.ToolTip" xml:space="preserve">
     <value>Set the current display alt as 0, ie home alt is shown as 0</value>
   </data>
+  <data name="BUT_Homealt.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;BUT_Homealt.Name" xml:space="preserve">
     <value>BUT_Homealt</value>
   </data>
@@ -1122,6 +1146,9 @@
   <data name="BUTrestartmission.ToolTip" xml:space="preserve">
     <value>Restarts the mission from the beginning</value>
   </data>
+  <data name="BUTrestartmission.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;BUTrestartmission.Name" xml:space="preserve">
     <value>BUTrestartmission</value>
   </data>
@@ -1148,6 +1175,9 @@
   </data>
   <data name="CMB_mountmode.TabIndex" type="System.Int32, mscorlib">
     <value>82</value>
+  </data>
+  <data name="CMB_mountmode.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;CMB_mountmode.Name" xml:space="preserve">
     <value>CMB_mountmode</value>
@@ -1182,6 +1212,9 @@
   <data name="BUT_quickrtl.ToolTip" xml:space="preserve">
     <value>Change Mode to RTL</value>
   </data>
+  <data name="BUT_quickrtl.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="&gt;&gt;BUT_quickrtl.Name" xml:space="preserve">
     <value>BUT_quickrtl</value>
   </data>
@@ -1214,6 +1247,9 @@
   </data>
   <data name="BUT_quickmanual.ToolTip" xml:space="preserve">
     <value>Change Mode to Manual/Stabalize</value>
+  </data>
+  <data name="BUT_quickmanual.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;BUT_quickmanual.Name" xml:space="preserve">
     <value>BUT_quickmanual</value>
@@ -1307,6 +1343,9 @@
   </data>
   <data name="BUT_quickauto.ToolTip" xml:space="preserve">
     <value>Change mode to Auto</value>
+  </data>
+  <data name="BUT_quickauto.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;BUT_quickauto.Name" xml:space="preserve">
     <value>BUT_quickauto</value>
@@ -1654,7 +1693,7 @@
     <value>checkListControl1</value>
   </data>
   <data name="&gt;&gt;checkListControl1.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.PreFlight.CheckListControl, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.PreFlight.CheckListControl, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;checkListControl1.Parent" xml:space="preserve">
     <value>tabPagePreFlight</value>
@@ -3143,7 +3182,7 @@
     <value>servoOptions1</value>
   </data>
   <data name="&gt;&gt;servoOptions1.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;servoOptions1.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -3164,7 +3203,7 @@
     <value>servoOptions2</value>
   </data>
   <data name="&gt;&gt;servoOptions2.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;servoOptions2.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -3185,7 +3224,7 @@
     <value>servoOptions3</value>
   </data>
   <data name="&gt;&gt;servoOptions3.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;servoOptions3.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -3206,7 +3245,7 @@
     <value>servoOptions4</value>
   </data>
   <data name="&gt;&gt;servoOptions4.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;servoOptions4.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -3227,7 +3266,7 @@
     <value>servoOptions5</value>
   </data>
   <data name="&gt;&gt;servoOptions5.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;servoOptions5.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -3248,7 +3287,7 @@
     <value>servoOptions6</value>
   </data>
   <data name="&gt;&gt;servoOptions6.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;servoOptions6.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -3269,7 +3308,7 @@
     <value>servoOptions7</value>
   </data>
   <data name="&gt;&gt;servoOptions7.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;servoOptions7.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -3290,7 +3329,7 @@
     <value>servoOptions8</value>
   </data>
   <data name="&gt;&gt;servoOptions8.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;servoOptions8.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -3311,7 +3350,7 @@
     <value>servoOptions9</value>
   </data>
   <data name="&gt;&gt;servoOptions9.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;servoOptions9.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -3320,7 +3359,7 @@
     <value>8</value>
   </data>
   <data name="servoOptions10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>324, 3</value>
+    <value>3, 294</value>
   </data>
   <data name="servoOptions10.Size" type="System.Drawing.Size, System.Drawing">
     <value>295, 24</value>
@@ -3332,7 +3371,7 @@
     <value>servoOptions10</value>
   </data>
   <data name="&gt;&gt;servoOptions10.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;servoOptions10.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -3341,7 +3380,7 @@
     <value>9</value>
   </data>
   <data name="servoOptions11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>324, 33</value>
+    <value>324, 3</value>
   </data>
   <data name="servoOptions11.Size" type="System.Drawing.Size, System.Drawing">
     <value>295, 22</value>
@@ -3353,7 +3392,7 @@
     <value>servoOptions11</value>
   </data>
   <data name="&gt;&gt;servoOptions11.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;servoOptions11.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -3362,7 +3401,7 @@
     <value>10</value>
   </data>
   <data name="servoOptions12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>324, 61</value>
+    <value>324, 31</value>
   </data>
   <data name="servoOptions12.Size" type="System.Drawing.Size, System.Drawing">
     <value>295, 22</value>
@@ -3374,7 +3413,7 @@
     <value>servoOptions12</value>
   </data>
   <data name="&gt;&gt;servoOptions12.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.ServoOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;servoOptions12.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -3383,7 +3422,7 @@
     <value>11</value>
   </data>
   <data name="relayOptions1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>324, 89</value>
+    <value>324, 59</value>
   </data>
   <data name="relayOptions1.Size" type="System.Drawing.Size, System.Drawing">
     <value>198, 22</value>
@@ -3395,7 +3434,7 @@
     <value>relayOptions1</value>
   </data>
   <data name="&gt;&gt;relayOptions1.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.RelayOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.RelayOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;relayOptions1.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -3404,7 +3443,7 @@
     <value>12</value>
   </data>
   <data name="relayOptions2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>324, 117</value>
+    <value>324, 87</value>
   </data>
   <data name="relayOptions2.Size" type="System.Drawing.Size, System.Drawing">
     <value>198, 22</value>
@@ -3416,7 +3455,7 @@
     <value>relayOptions2</value>
   </data>
   <data name="&gt;&gt;relayOptions2.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.RelayOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.RelayOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;relayOptions2.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -3425,7 +3464,7 @@
     <value>13</value>
   </data>
   <data name="relayOptions3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>324, 145</value>
+    <value>324, 115</value>
   </data>
   <data name="relayOptions3.Size" type="System.Drawing.Size, System.Drawing">
     <value>198, 22</value>
@@ -3437,7 +3476,7 @@
     <value>relayOptions3</value>
   </data>
   <data name="&gt;&gt;relayOptions3.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.RelayOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.RelayOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;relayOptions3.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -3446,7 +3485,7 @@
     <value>14</value>
   </data>
   <data name="relayOptions4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>324, 173</value>
+    <value>324, 143</value>
   </data>
   <data name="relayOptions4.Size" type="System.Drawing.Size, System.Drawing">
     <value>198, 22</value>
@@ -3458,7 +3497,7 @@
     <value>relayOptions4</value>
   </data>
   <data name="&gt;&gt;relayOptions4.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.RelayOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.RelayOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;relayOptions4.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -3467,7 +3506,7 @@
     <value>15</value>
   </data>
   <data name="relayOptions5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>324, 201</value>
+    <value>324, 171</value>
   </data>
   <data name="relayOptions5.Size" type="System.Drawing.Size, System.Drawing">
     <value>295, 22</value>
@@ -3479,7 +3518,7 @@
     <value>relayOptions5</value>
   </data>
   <data name="&gt;&gt;relayOptions5.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.RelayOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.RelayOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;relayOptions5.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -3488,7 +3527,7 @@
     <value>16</value>
   </data>
   <data name="relayOptions6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>324, 229</value>
+    <value>324, 199</value>
   </data>
   <data name="relayOptions6.Size" type="System.Drawing.Size, System.Drawing">
     <value>295, 22</value>
@@ -3500,7 +3539,7 @@
     <value>relayOptions6</value>
   </data>
   <data name="&gt;&gt;relayOptions6.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.RelayOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.RelayOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;relayOptions6.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -3509,7 +3548,7 @@
     <value>17</value>
   </data>
   <data name="relayOptions7.Location" type="System.Drawing.Point, System.Drawing">
-    <value>324, 257</value>
+    <value>324, 227</value>
   </data>
   <data name="relayOptions7.Size" type="System.Drawing.Size, System.Drawing">
     <value>295, 22</value>
@@ -3521,7 +3560,7 @@
     <value>relayOptions7</value>
   </data>
   <data name="&gt;&gt;relayOptions7.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.RelayOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.RelayOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;relayOptions7.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -3530,7 +3569,7 @@
     <value>18</value>
   </data>
   <data name="relayOptions8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>625, 3</value>
+    <value>324, 255</value>
   </data>
   <data name="relayOptions8.Size" type="System.Drawing.Size, System.Drawing">
     <value>295, 22</value>
@@ -3542,7 +3581,7 @@
     <value>relayOptions8</value>
   </data>
   <data name="&gt;&gt;relayOptions8.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.RelayOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.RelayOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;relayOptions8.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -3551,7 +3590,7 @@
     <value>19</value>
   </data>
   <data name="relayOptions9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>625, 31</value>
+    <value>324, 283</value>
   </data>
   <data name="relayOptions9.Size" type="System.Drawing.Size, System.Drawing">
     <value>295, 22</value>
@@ -3563,7 +3602,7 @@
     <value>relayOptions9</value>
   </data>
   <data name="&gt;&gt;relayOptions9.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.RelayOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.RelayOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;relayOptions9.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -3572,7 +3611,7 @@
     <value>20</value>
   </data>
   <data name="relayOptions10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>625, 59</value>
+    <value>324, 311</value>
   </data>
   <data name="relayOptions10.Size" type="System.Drawing.Size, System.Drawing">
     <value>295, 22</value>
@@ -3584,7 +3623,7 @@
     <value>relayOptions10</value>
   </data>
   <data name="&gt;&gt;relayOptions10.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.RelayOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.RelayOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;relayOptions10.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -3593,7 +3632,7 @@
     <value>21</value>
   </data>
   <data name="relayOptions11.Location" type="System.Drawing.Point, System.Drawing">
-    <value>625, 87</value>
+    <value>625, 3</value>
   </data>
   <data name="relayOptions11.Size" type="System.Drawing.Size, System.Drawing">
     <value>295, 22</value>
@@ -3605,7 +3644,7 @@
     <value>relayOptions11</value>
   </data>
   <data name="&gt;&gt;relayOptions11.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.RelayOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.RelayOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;relayOptions11.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -3614,7 +3653,7 @@
     <value>22</value>
   </data>
   <data name="relayOptions12.Location" type="System.Drawing.Point, System.Drawing">
-    <value>625, 115</value>
+    <value>625, 31</value>
   </data>
   <data name="relayOptions12.Size" type="System.Drawing.Size, System.Drawing">
     <value>295, 22</value>
@@ -3626,7 +3665,7 @@
     <value>relayOptions12</value>
   </data>
   <data name="&gt;&gt;relayOptions12.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.RelayOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.RelayOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;relayOptions12.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -3635,7 +3674,7 @@
     <value>23</value>
   </data>
   <data name="relayOptions13.Location" type="System.Drawing.Point, System.Drawing">
-    <value>625, 143</value>
+    <value>625, 59</value>
   </data>
   <data name="relayOptions13.Size" type="System.Drawing.Size, System.Drawing">
     <value>295, 22</value>
@@ -3647,7 +3686,7 @@
     <value>relayOptions13</value>
   </data>
   <data name="&gt;&gt;relayOptions13.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.RelayOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.RelayOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;relayOptions13.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -3656,7 +3695,7 @@
     <value>24</value>
   </data>
   <data name="relayOptions14.Location" type="System.Drawing.Point, System.Drawing">
-    <value>625, 171</value>
+    <value>625, 87</value>
   </data>
   <data name="relayOptions14.Size" type="System.Drawing.Size, System.Drawing">
     <value>295, 22</value>
@@ -3668,7 +3707,7 @@
     <value>relayOptions14</value>
   </data>
   <data name="&gt;&gt;relayOptions14.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.RelayOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.RelayOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;relayOptions14.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -3677,7 +3716,7 @@
     <value>25</value>
   </data>
   <data name="relayOptions15.Location" type="System.Drawing.Point, System.Drawing">
-    <value>625, 199</value>
+    <value>625, 115</value>
   </data>
   <data name="relayOptions15.Size" type="System.Drawing.Size, System.Drawing">
     <value>295, 22</value>
@@ -3689,7 +3728,7 @@
     <value>relayOptions15</value>
   </data>
   <data name="&gt;&gt;relayOptions15.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.RelayOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.RelayOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;relayOptions15.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -3698,7 +3737,7 @@
     <value>26</value>
   </data>
   <data name="relayOptions16.Location" type="System.Drawing.Point, System.Drawing">
-    <value>625, 227</value>
+    <value>625, 143</value>
   </data>
   <data name="relayOptions16.Size" type="System.Drawing.Size, System.Drawing">
     <value>295, 22</value>
@@ -3710,7 +3749,7 @@
     <value>relayOptions16</value>
   </data>
   <data name="&gt;&gt;relayOptions16.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.RelayOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.RelayOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;relayOptions16.Parent" xml:space="preserve">
     <value>flowLayoutPanelServos</value>
@@ -3788,7 +3827,7 @@
     <value>auxOptions1</value>
   </data>
   <data name="&gt;&gt;auxOptions1.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.AuxOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.AuxOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;auxOptions1.Parent" xml:space="preserve">
     <value>flowLayoutPanel1</value>
@@ -3809,7 +3848,7 @@
     <value>auxOptions2</value>
   </data>
   <data name="&gt;&gt;auxOptions2.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.AuxOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.AuxOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;auxOptions2.Parent" xml:space="preserve">
     <value>flowLayoutPanel1</value>
@@ -3830,7 +3869,7 @@
     <value>auxOptions3</value>
   </data>
   <data name="&gt;&gt;auxOptions3.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.AuxOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.AuxOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;auxOptions3.Parent" xml:space="preserve">
     <value>flowLayoutPanel1</value>
@@ -3851,7 +3890,7 @@
     <value>auxOptions4</value>
   </data>
   <data name="&gt;&gt;auxOptions4.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.AuxOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.AuxOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;auxOptions4.Parent" xml:space="preserve">
     <value>flowLayoutPanel1</value>
@@ -3872,7 +3911,7 @@
     <value>auxOptions5</value>
   </data>
   <data name="&gt;&gt;auxOptions5.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.AuxOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.AuxOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;auxOptions5.Parent" xml:space="preserve">
     <value>flowLayoutPanel1</value>
@@ -3893,7 +3932,7 @@
     <value>auxOptions6</value>
   </data>
   <data name="&gt;&gt;auxOptions6.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.AuxOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.AuxOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;auxOptions6.Parent" xml:space="preserve">
     <value>flowLayoutPanel1</value>
@@ -3914,7 +3953,7 @@
     <value>auxOptions7</value>
   </data>
   <data name="&gt;&gt;auxOptions7.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.AuxOptions, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.AuxOptions, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;auxOptions7.Parent" xml:space="preserve">
     <value>flowLayoutPanel1</value>
@@ -5666,7 +5705,7 @@
     <value>distanceBar1</value>
   </data>
   <data name="&gt;&gt;distanceBar1.Type" xml:space="preserve">
-    <value>MissionPlanner.Controls.DistanceBar, MissionPlanner, Version=1.3.9426.25414, Culture=neutral, PublicKeyToken=null</value>
+    <value>MissionPlanner.Controls.DistanceBar, MissionPlanner, Version=1.3.9449.37722, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;distanceBar1.Parent" xml:space="preserve">
     <value>splitContainer1.Panel2</value>
