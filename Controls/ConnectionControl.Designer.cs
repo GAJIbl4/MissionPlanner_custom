@@ -33,6 +33,8 @@
             this.cmb_Connection = new System.Windows.Forms.ComboBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.cmb_sysid = new System.Windows.Forms.ComboBox();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cmb_Baud
@@ -90,18 +92,25 @@
             this.cmb_sysid.SelectedIndexChanged += new System.EventHandler(this.CMB_sysid_SelectedIndexChanged);
             this.cmb_sysid.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.cmb_sysid_Format);
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.cmb_Connection);
+            this.flowLayoutPanel1.Controls.Add(this.cmb_Baud);
+            this.flowLayoutPanel1.Controls.Add(this.linkLabel1);
+            this.flowLayoutPanel1.Controls.Add(this.cmb_sysid);
+            resources.ApplyResources(this.flowLayoutPanel1, "flowLayoutPanel1");
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            // 
             // ConnectionControl
             // 
             this.BackgroundImage = global::MissionPlanner.Properties.Resources.bgdark;
-            this.Controls.Add(this.cmb_sysid);
-            this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.cmb_Connection);
-            this.Controls.Add(this.cmb_Baud);
+            this.Controls.Add(this.flowLayoutPanel1);
             resources.ApplyResources(this, "$this");
             this.Name = "ConnectionControl";
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ConnectionControl_MouseClick);
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -112,5 +121,6 @@
         private System.Windows.Forms.ComboBox cmb_Connection;
         private System.Windows.Forms.LinkLabel linkLabel1;
         public System.Windows.Forms.ComboBox cmb_sysid;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

@@ -616,6 +616,8 @@ namespace MissionPlanner
                 Settings.Instance["menu_autohide"] = Settings.Instance.GetBoolean("menu_autohide").ToString();
             }
 
+            // Zenit обновление
+            UpdateMenuIconColor();
 
 
             //Flight data page
@@ -643,12 +645,6 @@ namespace MissionPlanner
                 Settings.Instance["AHRS/GPS_Toggle"] = "AHRS";
 
             }
-
-            // Таймер на обновление кнопки
-            System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
-            timer.Interval = 200;
-            timer.Tick += (s, e) => UpdateMenuIconColor();
-            timer.Start();
 
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
 

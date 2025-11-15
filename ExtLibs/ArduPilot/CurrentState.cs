@@ -318,6 +318,16 @@ namespace MissionPlanner
         [DisplayText("Longitude (dd)")]
         public double lng { get; set; }
 
+        [DisplayFieldName("lat3.Field")]
+        [DisplayText("Latitude gps (dd)")]
+        [GroupText("Position")]
+        public double lat3 { get; set; }
+
+        [GroupText("Position")]
+        [DisplayFieldName("lng3.Field")]
+        [DisplayText("Longitude gps (dd)")]
+        public double lng3 { get; set; }
+
         [GroupText("Position")]
         [DisplayFieldName("alt.Field")]
         [DisplayText("Altitude (alt)")]
@@ -354,52 +364,11 @@ namespace MissionPlanner
             set => _altasl = value;
         }
 
-        //GPS raw position
-        [DisplayFieldName("gpslat.Field")]
-        [DisplayText("Raw GPS latitude (dd)")]
         [GroupText("Position")]
-        public double gps_lat { get; set; }
+        [DisplayFieldName("gps_input_loc.Field")]
+        [DisplayText("GPS Input Location")]
+        public MAVLink.mavlink_gps_input_t gps_loc { get; set; }
 
-        [GroupText("Position")]
-        [DisplayFieldName("gps_lng.Field")]
-        [DisplayText("Raw GPS longitude (dd)")]
-        public double gps_lng { get; set; }
-
-        [GroupText("Position")]
-        [DisplayFieldName("gps_alt.Field")]
-        [DisplayText("Raw GPS altitude (alt)")]
-        public float gps_alt
-        {
-            get => (_alt - altoffsethome) * multiplieralt;
-            set
-            {
-                // check update rate, and ensure time hasnt gone backwards
-                _alt = value;
-
-                if ((datetime - lastalt).TotalSeconds >= 0.2 && oldalt != alt || lastalt > datetime)
-                {
-                    //Don't update climbrate if we got a VFR_HUD message, because it is more accurate
-                    if (!gotVFR)
-                    {
-                        climbrate = (alt - oldalt) / (float)(datetime - lastalt).TotalSeconds;
-                    }
-                    verticalspeed = (alt - oldalt) / (float)(datetime - lastalt).TotalSeconds;
-                    if (float.IsInfinity(_verticalspeed))
-                        _verticalspeed = 0;
-                    lastalt = datetime;
-                    oldalt = alt;
-                }
-            }
-        }
-
-        [GroupText("Position")]
-        [DisplayFieldName("gps_altasl.Field")]
-        [DisplayText("Raw GPS altitude (alt)")]
-        public float gps_altasl
-        {
-            get => _altasl * multiplieralt;
-            set => _altasl = value;
-        }
 
         [GroupText("Position")]
         [DisplayFieldName("horizondist.Field")]
@@ -1329,6 +1298,8 @@ namespace MissionPlanner
 
         string _messagehigh = "";
         DateTime _messageHighTime;
+        public double gps_latt1;
+        public double gps_lngg1;
 
         [GroupText("Other")] public MAVLink.MAV_SEVERITY messageHighSeverity { get; set; }
 
@@ -1659,13 +1630,14 @@ namespace MissionPlanner
         }
 
         [GroupText("Position")] public PointLatLngAlt Location => new PointLatLngAlt(lat, lng, altasl);
-        [GroupText("Position")] public PointLatLngAlt GPSLocation => new PointLatLngAlt(gps_lat, gps_lng, altasl);
+        [GroupText("Position")] public PointLatLngAlt GPSLocation => new PointLatLngAlt(lat3, lng3, altasl);
         public PointLatLngAlt ActiveLocation
         {
             get
             {
                 if (Settings.Instance["AHRS/GPS_Toggle"] == "GPS")
                 {
+                    log.Info($"Location: {Location}, GPSLocation: {GPSLocation}");
                     return GPSLocation;
                 }
                 else
@@ -3305,6 +3277,13 @@ namespace MissionPlanner
                         }
 
                         break;
+                    case (uint)MAVLink.MAVLINK_MSG_ID.GPS_INPUT:
+                        {
+                            gps_loc = mavLinkMessage.ToStructure<MAVLink.mavlink_gps_input_t>();
+                            lat3 = gps_loc.lat / 10000000.0;
+                            lng3 = gps_loc.lon / 10000000.0;
+                        }
+                        break;
                     case (uint)MAVLink.MAVLINK_MSG_ID.GPS_RAW_INT:
 
                         {
@@ -3315,17 +3294,14 @@ namespace MissionPlanner
                                 if (gps.lat != int.MaxValue)
                                 {
                                     lat = gps.lat * 1.0e-7;
-                                    gps_lat = lat;
                                 }
                                     
                                 if (gps.lon != int.MaxValue)
                                 {
                                     lng = gps.lon * 1.0e-7;
-                                    gps_lng = lng;
                                 }
 
                                 altasl = gps.alt / 1000.0f;
-                                gps_altasl = altasl;
                                 // alt = gps.alt; // using vfr as includes baro calc
                             }
 
